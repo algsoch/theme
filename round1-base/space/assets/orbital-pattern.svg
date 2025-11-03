@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="spaceGrad" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#7B2FFF;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#0A0E27;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B2FFF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Deep space background -->
+  <rect width="400" height="400" fill="#0A0E27"/>
+  <circle cx="200" cy="200" r="180" fill="url(#spaceGrad)" opacity="0.4"/>
+  
+  <!-- Stars -->
+  <circle cx="50" cy="50" r="1.5" fill="white" opacity="0.8"/>
+  <circle cx="350" cy="80" r="1" fill="white" opacity="0.6"/>
+  <circle cx="100" cy="150" r="1.2" fill="white" opacity="0.7"/>
+  <circle cx="320" cy="180" r="1" fill="white" opacity="0.5"/>
+  <circle cx="80" cy="250" r="1.5" fill="white" opacity="0.9"/>
+  <circle cx="370" cy="300" r="1.2" fill="white" opacity="0.7"/>
+  <circle cx="150" cy="350" r="1" fill="white" opacity="0.6"/>
+  <circle cx="280" cy="370" r="1.5" fill="white" opacity="0.8"/>
+  
+  <!-- Central planet -->
+  <circle cx="200" cy="200" r="60" fill="url(#neonGrad)" opacity="0.8"/>
+  <circle cx="200" cy="200" r="55" fill="#0A0E27" opacity="0.6"/>
+  
+  <!-- Orbital rings -->
+  <circle cx="200" cy="200" r="100" fill="none" stroke="#00D9FF" stroke-width="1" opacity="0.6"/>
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#00D9FF" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#00D9FF" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- Rotating satellites -->
+  <circle cx="280" cy="200" r="8" fill="#00D9FF">
+    <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="10s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="140" cy="200" r="6" fill="#7B2FFF">
+    <animateTransform attributeName="transform" type="rotate" from="360 200 200" to="0 200 200" dur="15s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Neon grid overlay -->
+  <g opacity="0.2" stroke="#00D9FF" stroke-width="0.5" fill="none">
+    <line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="0" y1="300" x2="400" y2="300"/>
+    <line x1="100" y1="0" x2="100" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="300" y1="0" x2="300" y2="400"/>
+  </g>
+  
+  <!-- Corner brackets -->
+  <g stroke="#00D9FF" stroke-width="2" fill="none">
+    <path d="M 20,40 L 20,20 L 40,20"/>
+    <path d="M 360,20 L 380,20 L 380,40"/>
+    <path d="M 380,360 L 380,380 L 360,380"/>
+    <path d="M 40,380 L 20,380 L 20,360"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <g opacity="0.6">
+    <circle cx="60" cy="120" r="2" fill="#7B2FFF">
+      <animate attributeName="cy" values="120;100;120" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="340" cy="280" r="2" fill="#00D9FF">
+      <animate attributeName="cy" values="280;300;280" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

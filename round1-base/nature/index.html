@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Modal - Modal Masters</title>
+    <meta name="description" content="An organic, blooming modal experience inspired by nature and botanical elements">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="nature-background">
+        <div class="floating-particle" style="--delay: 0s; --x: 10%; --y: 20%;"></div>
+        <div class="floating-particle" style="--delay: 2s; --x: 80%; --y: 60%;"></div>
+        <div class="floating-particle" style="--delay: 4s; --x: 30%; --y: 80%;"></div>
+        <div class="floating-particle" style="--delay: 6s; --x: 70%; --y: 30%;"></div>
+        <div class="floating-particle" style="--delay: 8s; --x: 50%; --y: 50%;"></div>
+    </div>
+
+    <!-- Page Content -->
+    <main class="page-container">
+        <div class="content-wrapper">
+            <h1 class="page-title">
+                <span class="leaf-ornament">🌿</span>
+                Nature's Harmony
+                <span class="leaf-ornament">🌿</span>
+            </h1>
+            
+            <p class="page-description">
+                Experience the organic beauty of natural ecosystems through fluid interactions
+                and gentle animations inspired by growth, seasons, and life cycles.
+            </p>
+
+            <!-- Trigger Button -->
+            <button 
+                id="openModalBtn" 
+                class="open-modal-btn"
+                aria-label="Open Nature Experience"
+                aria-haspopup="dialog"
+            >
+                <svg class="btn-bloom" viewBox="0 0 100 100" aria-hidden="true">
+                    <circle cx="50" cy="50" r="20" class="bloom-center"/>
+                    <circle cx="50" cy="25" r="8" class="bloom-petal"/>
+                    <circle cx="73" cy="35" r="8" class="bloom-petal"/>
+                    <circle cx="73" cy="65" r="8" class="bloom-petal"/>
+                    <circle cx="50" cy="75" r="8" class="bloom-petal"/>
+                    <circle cx="27" cy="65" r="8" class="bloom-petal"/>
+                    <circle cx="27" cy="35" r="8" class="bloom-petal"/>
+                </svg>
+                <span class="btn-text">Discover Ecosystem</span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Modal Structure -->
+    <div 
+        id="natureModal" 
+        class="modal-overlay" 
+        role="dialog" 
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
+        hidden
+    >
+        <!-- Organic Backdrop -->
+        <div class="modal-backdrop" aria-hidden="true">
+            <div class="backdrop-gradient"></div>
+        </div>
+
+        <!-- Modal Container (Blooming Flower) -->
+        <div class="modal-container">
+            <!-- Petals (6-petal bloom animation) -->
+            <div class="petal-wrapper" aria-hidden="true">
+                <div class="petal petal-1"></div>
+                <div class="petal petal-2"></div>
+                <div class="petal petal-3"></div>
+                <div class="petal petal-4"></div>
+                <div class="petal petal-5"></div>
+                <div class="petal petal-6"></div>
+            </div>
+
+            <!-- Main Modal Content -->
+            <article class="modal-content" tabindex="-1">
+                <!-- Close Button -->
+                <button 
+                    id="closeModalBtn" 
+                    class="close-modal-btn"
+                    aria-label="Close modal"
+                    type="button"
+                >
+                    <svg viewBox="0 0 24 24" class="close-icon" aria-hidden="true">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+
+                <!-- Header with Organic Elements -->
+                <header class="modal-header">
+                    <div class="header-decoration" aria-hidden="true">
+                        <svg class="growth-lines" viewBox="0 0 200 60">
+                            <path d="M 0,30 Q 50,10 100,30 T 200,30" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                            <circle cx="30" cy="25" r="3" fill="currentColor" opacity="0.6"/>
+                            <circle cx="100" cy="30" r="4" fill="currentColor" opacity="0.7"/>
+                            <circle cx="170" cy="25" r="3" fill="currentColor" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    
+                    <h2 id="modalTitle" class="modal-title">
+                        The Living Forest
+                    </h2>
+                    <p class="modal-subtitle">An Interconnected Ecosystem</p>
+                </header>
+
+                <!-- Content Sections -->
+                <section class="modal-body">
+                    <div class="content-section" data-section="intro">
+                        <p id="modalDescription" class="content-text">
+                            A forest is more than a collection of trees—it's a breathing, living network
+                            where every organism plays a vital role. From microscopic fungi to towering 
+                            canopies, nature demonstrates the perfect balance of give and take.
+                        </p>
+
+                        <!-- Ecosystem Stats with Organic Cards -->
+                        <div class="ecosystem-grid">
+                            <div class="eco-card" data-element="tree">
+                                <div class="eco-icon">🌳</div>
+                                <h3 class="eco-label">Trees</h3>
+                                <p class="eco-value">400+ Species</p>
+                                <p class="eco-detail">Oxygen producers & carbon storers</p>
+                            </div>
+
+                            <div class="eco-card" data-element="water">
+                                <div class="eco-icon">💧</div>
+                                <h3 class="eco-label">Water Cycle</h3>
+                                <p class="eco-value">75% Humidity</p>
+                                <p class="eco-detail">Natural air conditioning system</p>
+                            </div>
+
+                            <div class="eco-card" data-element="soil">
+                                <div class="eco-icon">🪨</div>
+                                <h3 class="eco-label">Soil Health</h3>
+                                <p class="eco-value">Billions of Microbes</p>
+                                <p class="eco-detail">Foundation of life underground</p>
+                            </div>
+
+                            <div class="eco-card" data-element="wildlife">
+                                <div class="eco-icon">🦋</div>
+                                <h3 class="eco-label">Wildlife</h3>
+                                <p class="eco-value">1000+ Animals</p>
+                                <p class="eco-detail">Pollinators & seed dispersers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" data-section="seasons">
+                        <h3 class="section-title">
+                            <span class="title-icon">🍂</span>
+                            Seasonal Transformations
+                        </h3>
+                        
+                        <!-- Interactive Season Selector -->
+                        <div class="seasons-selector">
+                            <button class="season-btn active" data-season="spring" aria-pressed="true">
+                                <span class="season-emoji">🌸</span>
+                                <span class="season-name">Spring</span>
+                            </button>
+                            <button class="season-btn" data-season="summer" aria-pressed="false">
+                                <span class="season-emoji">☀️</span>
+                                <span class="season-name">Summer</span>
+                            </button>
+                            <button class="season-btn" data-season="autumn" aria-pressed="false">
+                                <span class="season-emoji">🍂</span>
+                                <span class="season-name">Autumn</span>
+                            </button>
+                            <button class="season-btn" data-season="winter" aria-pressed="false">
+                                <span class="season-emoji">❄️</span>
+                                <span class="season-name">Winter</span>
+                            </button>
+                        </div>
+
+                        <!-- Season Content (Dynamic) -->
+                        <div class="season-content">
+                            <div class="season-panel active" data-season-panel="spring">
+                                <h4 class="season-heading">Spring Awakening</h4>
+                                <p class="season-description">
+                                    New life emerges as temperatures rise. Buds burst open, flowers bloom,
+                                    and animals awaken from hibernation. The forest fills with birdsong and color.
+                                </p>
+                                <ul class="season-features">
+                                    <li>🌱 New growth and budding</li>
+                                    <li>🐦 Bird migration returns</li>
+                                    <li>🌼 Wildflower carpets</li>
+                                </ul>
+                            </div>
+
+                            <div class="season-panel" data-season-panel="summer">
+                                <h4 class="season-heading">Summer Abundance</h4>
+                                <p class="season-description">
+                                    Peak growth and maximum productivity. The canopy is dense, photosynthesis
+                                    is at its highest, and the forest buzzes with insect activity.
+                                </p>
+                                <ul class="season-features">
+                                    <li>🌳 Full canopy coverage</li>
+                                    <li>🦋 Peak pollinator activity</li>
+                                    <li>🍓 Berry season begins</li>
+                                </ul>
+                            </div>
+
+                            <div class="season-panel" data-season-panel="autumn">
+                                <h4 class="season-heading">Autumn Harvest</h4>
+                                <p class="season-description">
+                                    A spectacular display of colors as chlorophyll breaks down. Trees prepare
+                                    for winter, dropping leaves to conserve energy. Animals gather food stores.
+                                </p>
+                                <ul class="season-features">
+                                    <li>🍂 Vibrant fall colors</li>
+                                    <li>🌰 Nut and seed dispersal</li>
+                                    <li>🦌 Animal preparation</li>
+                                </ul>
+                            </div>
+
+                            <div class="season-panel" data-season-panel="winter">
+                                <h4 class="season-heading">Winter Rest</h4>
+                                <p class="season-description">
+                                    The forest enters dormancy. Deciduous trees are bare, conserving resources.
+                                    Life slows but doesn't stop—evergreens remain, and hardy creatures persist.
+                                </p>
+                                <ul class="season-features">
+                                    <li>❄️ Snow-covered landscape</li>
+                                    <li>🌲 Evergreen dominance</li>
+                                    <li>🦊 Winter-adapted wildlife</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Conservation Form -->
+                    <div class="content-section" data-section="action">
+                        <h3 class="section-title">
+                            <span class="title-icon">🌍</span>
+                            Take Action for Nature
+                        </h3>
+                        
+                        <form id="conservationForm" class="conservation-form" novalidate>
+                            <div class="form-group">
+                                <label for="userName" class="form-label">Your Name</label>
+                                <input 
+                                    type="text" 
+                                    id="userName" 
+                                    class="form-input"
+                                    placeholder="Enter your name"
+                                    required
+                                    aria-required="true"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="actionType" class="form-label">Conservation Action</label>
+                                <select id="actionType" class="form-input" required>
+                                    <option value="">Choose an action...</option>
+                                    <option value="plant">Plant Native Trees</option>
+                                    <option value="cleanup">Organize Cleanup</option>
+                                    <option value="donate">Support Conservation</option>
+                                    <option value="educate">Educate Others</option>
+                                </select>
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Commitment Level</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="commitment" value="monthly" class="radio-input">
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-text">Monthly Action</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="commitment" value="quarterly" class="radio-input" checked>
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-text">Quarterly Action</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="commitment" value="yearly" class="radio-input">
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-text">Yearly Action</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="form-submit-btn">
+                                <span class="btn-leaf">🌱</span>
+                                Commit to Conservation
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Modal Footer -->
+                <footer class="modal-footer">
+                    <div class="footer-decoration" aria-hidden="true">
+                        <svg class="roots" viewBox="0 0 300 40">
+                            <path d="M 0,20 Q 75,10 150,20 T 300,20" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                            <path d="M 0,25 Q 75,30 150,25 T 300,25" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.25"/>
+                        </svg>
+                    </div>
+                    <p class="footer-text">
+                        "In every walk with nature, one receives far more than he seeks."
+                        <em>— John Muir</em>
+                    </p>
+                </footer>
+            </article>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+        <span class="toast-icon">🌿</span>
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="modal.js"></script>
+</body>
+</html>

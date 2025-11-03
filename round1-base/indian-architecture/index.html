@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Architecture Modal - Modal Masters</title>
+    <meta name="description" content="A temple-inspired symmetrical modal showcasing Indian architectural heritage">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Page Content -->
+    <main class="page-container">
+        <div class="heritage-background">
+            <!-- Decorative temple silhouettes -->
+            <div class="temple-silhouette temple-left"></div>
+            <div class="temple-silhouette temple-right"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <h1 class="page-title">
+                <span class="title-ornament">✦</span>
+                Indian Architectural Heritage
+                <span class="title-ornament">✦</span>
+            </h1>
+            
+            <p class="page-description">
+                Experience the grandeur of India's architectural marvels through an immersive modal interface.
+                From ancient temples to Mughal monuments, explore centuries of design excellence.
+            </p>
+
+            <!-- Trigger Button -->
+            <button 
+                id="openModalBtn" 
+                class="open-modal-btn"
+                aria-label="Open Indian Architecture Experience"
+                aria-haspopup="dialog"
+            >
+                <span class="btn-icon">🕌</span>
+                <span class="btn-text">Enter the Monument</span>
+                <span class="btn-ornament"></span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Modal Structure -->
+    <div 
+        id="architectureModal" 
+        class="modal-overlay" 
+        role="dialog" 
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
+        hidden
+    >
+        <!-- Backdrop -->
+        <div class="modal-backdrop" aria-hidden="true"></div>
+
+        <!-- Modal Container -->
+        <div class="modal-container">
+            <!-- Left Door -->
+            <div class="modal-door modal-door-left" aria-hidden="true">
+                <div class="door-panel">
+                    <div class="door-carving door-carving-1"></div>
+                    <div class="door-carving door-carving-2"></div>
+                    <div class="door-carving door-carving-3"></div>
+                </div>
+            </div>
+
+            <!-- Right Door -->
+            <div class="modal-door modal-door-right" aria-hidden="true">
+                <div class="door-panel">
+                    <div class="door-carving door-carving-1"></div>
+                    <div class="door-carving door-carving-2"></div>
+                    <div class="door-carving door-carving-3"></div>
+                </div>
+            </div>
+
+            <!-- Main Modal Content -->
+            <article class="modal-content" tabindex="-1">
+                <!-- Close Button -->
+                <button 
+                    id="closeModalBtn" 
+                    class="close-modal-btn"
+                    aria-label="Close modal"
+                    type="button"
+                >
+                    <span class="close-icon" aria-hidden="true">×</span>
+                </button>
+
+                <!-- Header with Mandala Pattern -->
+                <header class="modal-header">
+                    <div class="mandala-pattern" aria-hidden="true">
+                        <svg class="mandala-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+                            <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+                            <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
+                            <!-- Radial lines -->
+                            <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="25" y1="25" x2="175" y2="175" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="175" y1="25" x2="25" y2="175" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h2 id="modalTitle" class="modal-title">
+                        The Taj Mahal
+                    </h2>
+                    <p class="modal-subtitle">A Testament to Eternal Love</p>
+                </header>
+
+                <!-- Content Sections -->
+                <section class="modal-body">
+                    <div class="content-section" data-section="intro">
+                        <div class="section-ornament top" aria-hidden="true">✦ ◆ ✦</div>
+                        
+                        <p id="modalDescription" class="content-text">
+                            Built between 1632 and 1653, the Taj Mahal stands as one of the world's most 
+                            recognized structures and a UNESCO World Heritage Site. Emperor Shah Jahan 
+                            commissioned this magnificent mausoleum in memory of his beloved wife, 
+                            Mumtaz Mahal.
+                        </p>
+
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <div class="info-icon">📍</div>
+                                <h3 class="info-label">Location</h3>
+                                <p class="info-value">Agra, Uttar Pradesh</p>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="info-icon">📐</div>
+                                <h3 class="info-label">Style</h3>
+                                <p class="info-value">Mughal Architecture</p>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="info-icon">🏗️</div>
+                                <h3 class="info-label">Construction</h3>
+                                <p class="info-value">21 Years</p>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="info-icon">👷</div>
+                                <h3 class="info-label">Artisans</h3>
+                                <p class="info-value">20,000+</p>
+                            </div>
+                        </div>
+
+                        <div class="section-ornament bottom" aria-hidden="true">◆ ✦ ◆</div>
+                    </div>
+
+                    <div class="content-section" data-section="features">
+                        <h3 class="section-title">Architectural Features</h3>
+                        
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <span class="feature-icon">⬜</span>
+                                <strong>Perfect Symmetry:</strong> The monument exemplifies bilateral symmetry throughout its design
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">💎</span>
+                                <strong>Precious Inlay:</strong> Semi-precious stones forming intricate floral patterns
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">🕌</span>
+                                <strong>Central Dome:</strong> 35 meters high, surrounded by four smaller domed chattris
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">🗼</span>
+                                <strong>Four Minarets:</strong> Each standing 40 meters tall, framing the main structure
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Interactive Form Section -->
+                    <div class="content-section" data-section="visitor-info">
+                        <h3 class="section-title">Plan Your Visit</h3>
+                        
+                        <form id="visitorForm" class="visitor-form" novalidate>
+                            <div class="form-group">
+                                <label for="visitorName" class="form-label">Full Name</label>
+                                <input 
+                                    type="text" 
+                                    id="visitorName" 
+                                    class="form-input"
+                                    placeholder="Enter your name"
+                                    required
+                                    aria-required="true"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="visitDate" class="form-label">Preferred Visit Date</label>
+                                <input 
+                                    type="date" 
+                                    id="visitDate" 
+                                    class="form-input"
+                                    required
+                                    aria-required="true"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="visitorCount" class="form-label">Number of Visitors</label>
+                                <select id="visitorCount" class="form-input">
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3-5">3-5 People</option>
+                                    <option value="6+">6+ People</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="form-submit-btn">
+                                Reserve Your Experience
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Modal Footer -->
+                <footer class="modal-footer">
+                    <div class="footer-ornament" aria-hidden="true">
+                        ✦ ◆ ✦ ◆ ✦
+                    </div>
+                    <p class="footer-text">
+                        "The Taj Mahal rises above the banks of the river like a solitary tear suspended on the cheek of time."
+                        <em>— Rabindranath Tagore</em>
+                    </p>
+                </footer>
+            </article>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="modal.js"></script>
+</body>
+</html>

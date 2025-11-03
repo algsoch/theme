@@ -1,0 +1,831 @@
+/* ===================================
+   INDIAN ARCHITECTURE THEME - STYLES
+   Modal Masters Challenge
+   Round 1: Base Implementation
+   =================================== */
+
+/* CSS Custom Properties - Theme Colors */
+:root {
+  /* Heritage color palette */
+  --arch-primary: #8B4513;      /* Saddle brown - sandstone */
+  --arch-secondary: #D4A574;    /* Tan - light stone */
+  --arch-accent: #C19A6B;       /* Camel - carved details */
+  --arch-gold: #DAA520;         /* Goldenrod - decorative */
+  --arch-dark: #3E2723;         /* Dark brown - shadows */
+  --arch-light: #FFF8E7;        /* Cornsilk - highlights */
+  
+  /* Functional colors */
+  --arch-text: #2C1810;
+  --arch-text-light: #5D4E37;
+  --arch-bg: #F5E6D3;
+  --arch-overlay: rgba(62, 39, 35, 0.85);
+  
+  /* Spacing and timing */
+  --arch-spacing-xs: 0.5rem;
+  --arch-spacing-sm: 1rem;
+  --arch-spacing-md: 1.5rem;
+  --arch-spacing-lg: 2rem;
+  --arch-spacing-xl: 3rem;
+  
+  --arch-duration-fast: 0.3s;
+  --arch-duration-medium: 0.6s;
+  --arch-duration-slow: 1s;
+  --arch-duration-door: 1.2s;
+  
+  /* Symmetry constants */
+  --arch-border-radius: 8px;
+  --arch-door-width: 50%;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+  background: linear-gradient(135deg, var(--arch-bg) 0%, var(--arch-secondary) 100%);
+  color: var(--arch-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===================================
+   PAGE LAYOUT
+   =================================== */
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--arch-spacing-lg);
+  position: relative;
+}
+
+.heritage-background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.temple-silhouette {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background: var(--arch-dark);
+  clip-path: polygon(
+    50% 0%, 
+    60% 10%, 70% 10%, 70% 20%, 80% 20%, 80% 100%, 
+    20% 100%, 20% 20%, 30% 20%, 30% 10%, 40% 10%
+  );
+}
+
+.temple-left {
+  bottom: 0;
+  left: 5%;
+  transform: rotate(-5deg);
+}
+
+.temple-right {
+  bottom: 0;
+  right: 5%;
+  transform: rotate(5deg) scaleX(-1);
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+}
+
+.page-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--arch-primary);
+  margin-bottom: var(--arch-spacing-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+}
+
+.title-ornament {
+  display: inline-block;
+  color: var(--arch-gold);
+  margin: 0 var(--arch-spacing-sm);
+  animation: ornamentPulse 2s ease-in-out infinite;
+}
+
+@keyframes ornamentPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: var(--arch-text-light);
+  margin-bottom: var(--arch-spacing-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===================================
+   TRIGGER BUTTON
+   =================================== */
+
+.open-modal-btn {
+  position: relative;
+  padding: var(--arch-spacing-md) var(--arch-spacing-xl);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--arch-light);
+  background: linear-gradient(135deg, var(--arch-primary) 0%, var(--arch-accent) 100%);
+  border: 3px solid var(--arch-gold);
+  border-radius: var(--arch-border-radius);
+  cursor: pointer;
+  transition: all var(--arch-duration-fast) ease;
+  font-family: inherit;
+  box-shadow: 
+    0 4px 15px rgba(139, 69, 19, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.open-modal-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width var(--arch-duration-medium) ease, height var(--arch-duration-medium) ease;
+}
+
+.open-modal-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.open-modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: var(--arch-light);
+}
+
+.open-modal-btn:active {
+  transform: translateY(0);
+}
+
+.open-modal-btn:focus-visible {
+  outline: 3px solid var(--arch-gold);
+  outline-offset: 4px;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-icon {
+  margin-right: var(--arch-spacing-xs);
+  font-size: 1.5em;
+}
+
+/* ===================================
+   MODAL OVERLAY
+   =================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--arch-spacing-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--arch-duration-medium) ease, visibility var(--arch-duration-medium) ease;
+}
+
+.modal-overlay[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--arch-overlay);
+  backdrop-filter: blur(4px);
+  animation: backdropFadeIn var(--arch-duration-medium) ease;
+}
+
+@keyframes backdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===================================
+   MODAL CONTAINER & DOORS
+   =================================== */
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  background: var(--arch-light);
+  border-radius: var(--arch-border-radius);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 0 1px var(--arch-gold);
+  overflow: hidden;
+}
+
+/* Ceremonial Sliding Doors */
+.modal-door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--arch-door-width);
+  background: linear-gradient(to bottom, var(--arch-primary), var(--arch-accent));
+  z-index: 10;
+  transition: transform var(--arch-duration-door) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  will-change: transform;
+}
+
+.modal-door-left {
+  left: 0;
+  border-right: 2px solid var(--arch-gold);
+  transform: translateX(0);
+}
+
+.modal-door-right {
+  right: 0;
+  border-left: 2px solid var(--arch-gold);
+  transform: translateX(0);
+}
+
+/* Door opening animation */
+.modal-overlay[aria-hidden="false"] .modal-door-left {
+  transform: translateX(-100%);
+}
+
+.modal-overlay[aria-hidden="false"] .modal-door-right {
+  transform: translateX(100%);
+}
+
+/* Door closing animation */
+.modal-overlay.closing .modal-door-left,
+.modal-overlay.closing .modal-door-right {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.door-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: var(--arch-spacing-lg);
+}
+
+.door-carving {
+  width: 80%;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--arch-gold);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.door-carving::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--arch-gold);
+  opacity: 0.5;
+}
+
+.door-carving::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: var(--arch-gold);
+  opacity: 0.3;
+}
+
+/* ===================================
+   MODAL CONTENT
+   =================================== */
+
+.modal-content {
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--arch-spacing-xl);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--arch-duration-slow) ease var(--arch-duration-door),
+              transform var(--arch-duration-slow) ease var(--arch-duration-door);
+}
+
+.modal-overlay[aria-hidden="false"] .modal-content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Smooth scrolling */
+.modal-content {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--arch-accent) var(--arch-light);
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: var(--arch-light);
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: var(--arch-accent);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: var(--arch-primary);
+}
+
+/* Close Button */
+.close-modal-btn {
+  position: absolute;
+  top: var(--arch-spacing-md);
+  right: var(--arch-spacing-md);
+  width: 48px;
+  height: 48px;
+  background: var(--arch-primary);
+  border: 2px solid var(--arch-gold);
+  border-radius: 50%;
+  color: var(--arch-light);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--arch-duration-fast) ease;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-modal-btn:hover {
+  background: var(--arch-gold);
+  color: var(--arch-dark);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+.close-modal-btn:focus-visible {
+  outline: 3px solid var(--arch-accent);
+  outline-offset: 4px;
+}
+
+.close-modal-btn:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* ===================================
+   MODAL HEADER
+   =================================== */
+
+.modal-header {
+  text-align: center;
+  padding-bottom: var(--arch-spacing-lg);
+  border-bottom: 2px solid var(--arch-secondary);
+  position: relative;
+  margin-bottom: var(--arch-spacing-lg);
+}
+
+.mandala-pattern {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--arch-spacing-md);
+  color: var(--arch-accent);
+  animation: mandalaRotate 20s linear infinite;
+}
+
+@keyframes mandalaRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.mandala-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.modal-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--arch-primary);
+  margin-bottom: var(--arch-spacing-xs);
+  letter-spacing: 1px;
+}
+
+.modal-subtitle {
+  font-size: 1.1rem;
+  color: var(--arch-text-light);
+  font-style: italic;
+}
+
+/* ===================================
+   MODAL BODY
+   =================================== */
+
+.modal-body {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.content-section {
+  margin-bottom: var(--arch-spacing-xl);
+  position: relative;
+}
+
+.section-ornament {
+  text-align: center;
+  color: var(--arch-gold);
+  font-size: 1.2rem;
+  letter-spacing: 1rem;
+  opacity: 0.6;
+}
+
+.section-ornament.top {
+  margin-bottom: var(--arch-spacing-md);
+}
+
+.section-ornament.bottom {
+  margin-top: var(--arch-spacing-md);
+}
+
+.content-text {
+  color: var(--arch-text);
+  margin-bottom: var(--arch-spacing-md);
+  text-align: justify;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--arch-primary);
+  margin-bottom: var(--arch-spacing-md);
+  padding-bottom: var(--arch-spacing-xs);
+  border-bottom: 2px solid var(--arch-secondary);
+}
+
+/* Info Grid - Symmetrical Layout */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--arch-spacing-md);
+  margin: var(--arch-spacing-lg) 0;
+}
+
+.info-card {
+  background: var(--arch-bg);
+  border: 2px solid var(--arch-secondary);
+  border-radius: var(--arch-border-radius);
+  padding: var(--arch-spacing-md);
+  text-align: center;
+  transition: all var(--arch-duration-fast) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--arch-gold), transparent);
+  transform: translateX(-100%);
+  transition: transform var(--arch-duration-medium) ease;
+}
+
+.info-card:hover::before {
+  transform: translateX(100%);
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(139, 69, 19, 0.2);
+  border-color: var(--arch-gold);
+}
+
+.info-icon {
+  font-size: 2rem;
+  margin-bottom: var(--arch-spacing-xs);
+}
+
+.info-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--arch-text-light);
+  margin-bottom: var(--arch-spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--arch-primary);
+}
+
+/* Features List */
+.features-list {
+  list-style: none;
+}
+
+.feature-item {
+  padding: var(--arch-spacing-sm);
+  margin-bottom: var(--arch-spacing-sm);
+  background: var(--arch-bg);
+  border-left: 4px solid var(--arch-accent);
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--arch-spacing-sm);
+  transition: all var(--arch-duration-fast) ease;
+}
+
+.feature-item:hover {
+  border-left-color: var(--arch-gold);
+  background: var(--arch-secondary);
+  transform: translateX(4px);
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* ===================================
+   FORM STYLES
+   =================================== */
+
+.visitor-form {
+  background: var(--arch-bg);
+  padding: var(--arch-spacing-lg);
+  border-radius: var(--arch-border-radius);
+  border: 2px solid var(--arch-secondary);
+}
+
+.form-group {
+  margin-bottom: var(--arch-spacing-md);
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--arch-text);
+  margin-bottom: var(--arch-spacing-xs);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--arch-spacing-sm);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--arch-text);
+  background: var(--arch-light);
+  border: 2px solid var(--arch-secondary);
+  border-radius: var(--arch-border-radius);
+  transition: all var(--arch-duration-fast) ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--arch-accent);
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.form-input:invalid:not(:placeholder-shown) {
+  border-color: #D32F2F;
+}
+
+.form-error {
+  display: block;
+  color: #D32F2F;
+  font-size: 0.875rem;
+  margin-top: var(--arch-spacing-xs);
+  min-height: 1.2em;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: var(--arch-spacing-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--arch-light);
+  background: linear-gradient(135deg, var(--arch-primary) 0%, var(--arch-accent) 100%);
+  border: 2px solid var(--arch-gold);
+  border-radius: var(--arch-border-radius);
+  cursor: pointer;
+  transition: all var(--arch-duration-fast) ease;
+}
+
+.form-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+}
+
+.form-submit-btn:active {
+  transform: translateY(0);
+}
+
+.form-submit-btn:focus-visible {
+  outline: 3px solid var(--arch-accent);
+  outline-offset: 4px;
+}
+
+/* ===================================
+   MODAL FOOTER
+   =================================== */
+
+.modal-footer {
+  text-align: center;
+  padding-top: var(--arch-spacing-lg);
+  border-top: 2px solid var(--arch-secondary);
+  margin-top: var(--arch-spacing-xl);
+}
+
+.footer-ornament {
+  color: var(--arch-gold);
+  font-size: 1.2rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: var(--arch-spacing-md);
+  opacity: 0.6;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  color: var(--arch-text-light);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.footer-text em {
+  display: block;
+  margin-top: var(--arch-spacing-xs);
+  font-size: 0.85rem;
+}
+
+/* ===================================
+   TOAST NOTIFICATION
+   =================================== */
+
+.toast {
+  position: fixed;
+  bottom: var(--arch-spacing-lg);
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--arch-primary);
+  color: var(--arch-light);
+  padding: var(--arch-spacing-md) var(--arch-spacing-lg);
+  border-radius: var(--arch-border-radius);
+  border: 2px solid var(--arch-gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  transition: transform var(--arch-duration-fast) ease;
+  min-width: 300px;
+  text-align: center;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --arch-spacing-xl: 2rem;
+    --arch-spacing-lg: 1.5rem;
+  }
+
+  .modal-content {
+    padding: var(--arch-spacing-lg);
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .temple-silhouette {
+    width: 200px;
+    height: 300px;
+  }
+
+  .close-modal-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-overlay {
+    padding: var(--arch-spacing-sm);
+  }
+
+  .door-carving {
+    height: 60px;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY - REDUCED MOTION
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .modal-door {
+    transition: none;
+  }
+
+  .mandala-pattern {
+    animation: none;
+  }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+  .open-modal-btn,
+  .close-modal-btn,
+  .modal-backdrop,
+  .modal-door,
+  .temple-silhouette {
+    display: none !important;
+  }
+
+  .modal-overlay {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    opacity: 1;
+    transform: none;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* ===================================
+   FOCUS VISIBLE POLYFILL
+   =================================== */
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}

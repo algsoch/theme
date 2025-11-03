@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mythology Modal - Modal Masters</title>
+    <meta name="description" content="A layered modal experience with mythological storytelling and ancient symbolism">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Mythological Background Layers -->
+    <div class="myth-background">
+        <div class="bg-layer layer-1"></div>
+        <div class="bg-layer layer-2"></div>
+        <div class="bg-layer layer-3"></div>
+        <div class="floating-symbol symbol-1">⚡</div>
+        <div class="floating-symbol symbol-2">🔱</div>
+        <div class="floating-symbol symbol-3">☀️</div>
+    </div>
+
+    <!-- Page Content -->
+    <main class="page-container">
+        <div class="content-wrapper">
+            <div class="title-ornament-top">═══ ◈ ═══</div>
+            <h1 class="page-title">
+                TALES OF THE DIVINE
+            </h1>
+            <div class="title-ornament-bottom">═══ ◈ ═══</div>
+            
+            <p class="page-description">
+                Journey through ancient legends and mythological realms. Where gods walked among mortals
+                and heroes forged destinies through trials of courage and wisdom.
+            </p>
+
+            <!-- Trigger Button -->
+            <button 
+                id="openModalBtn" 
+                class="open-modal-btn"
+                aria-label="Enter Mythological Realm"
+                aria-haspopup="dialog"
+            >
+                <div class="btn-symbol">◈</div>
+                <span class="btn-text">ENTER THE REALM</span>
+                <div class="btn-aura"></div>
+            </button>
+        </div>
+    </main>
+
+    <!-- Modal Structure -->
+    <div 
+        id="mythModal" 
+        class="modal-overlay" 
+        role="dialog" 
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
+        hidden
+    >
+        <!-- Ethereal Backdrop -->
+        <div class="modal-backdrop" aria-hidden="true">
+            <div class="mist-layer"></div>
+        </div>
+
+        <!-- Progressive Reveal Layers -->
+        <div class="reveal-layers" aria-hidden="true">
+            <div class="reveal-layer layer-1"></div>
+            <div class="reveal-layer layer-2"></div>
+            <div class="reveal-layer layer-3"></div>
+            <div class="reveal-layer layer-4"></div>
+        </div>
+
+        <!-- Modal Container -->
+        <div class="modal-container">
+            <!-- Ancient Borders -->
+            <div class="border-decoration top-left" aria-hidden="true"></div>
+            <div class="border-decoration top-right" aria-hidden="true"></div>
+            <div class="border-decoration bottom-left" aria-hidden="true"></div>
+            <div class="border-decoration bottom-right" aria-hidden="true"></div>
+
+            <!-- Main Modal Content -->
+            <article class="modal-content" tabindex="-1">
+                <!-- Close Button -->
+                <button 
+                    id="closeModalBtn" 
+                    class="close-modal-btn"
+                    aria-label="Close modal"
+                    type="button"
+                >
+                    <span class="close-icon">✕</span>
+                </button>
+
+                <!-- Header -->
+                <header class="modal-header">
+                    <div class="deity-symbol" aria-hidden="true">⚡</div>
+                    <h2 id="modalTitle" class="modal-title">
+                        Zeus: King of the Gods
+                    </h2>
+                    <p class="modal-subtitle">Ruler of Mount Olympus</p>
+                    <div class="divider-ornament">═══ ◈ ═══</div>
+                </header>
+
+                <!-- Content Sections -->
+                <section class="modal-body">
+                    <div class="content-section" data-section="intro">
+                        <p id="modalDescription" class="content-text illuminated">
+                            <span class="drop-cap">I</span>n the realm of gods and mortals, Zeus reigned supreme from the heights 
+                            of Mount Olympus. Armed with thunderbolts forged by the Cyclopes, he commanded the 
+                            skies, dispensing justice and maintaining cosmic order. His legacy shapes civilization itself.
+                        </p>
+
+                        <!-- Divine Attributes -->
+                        <div class="attributes-grid">
+                            <div class="attribute-card">
+                                <div class="attr-icon">⚡</div>
+                                <h3 class="attr-title">Thunder & Lightning</h3>
+                                <p class="attr-desc">Master of storms and celestial fury</p>
+                            </div>
+
+                            <div class="attribute-card">
+                                <div class="attr-icon">👁️</div>
+                                <h3 class="attr-title">All-Seeing Eye</h3>
+                                <p class="attr-desc">Guardian of oaths and justice</p>
+                            </div>
+
+                            <div class="attribute-card">
+                                <div class="attr-icon">🦅</div>
+                                <h3 class="attr-title">Sacred Eagle</h3>
+                                <p class="attr-desc">Divine messenger and symbol</p>
+                            </div>
+
+                            <div class="attribute-card">
+                                <div class="attr-icon">⚖️</div>
+                                <h3 class="attr-title">Divine Authority</h3>
+                                <p class="attr-desc">Supreme ruler of gods and men</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" data-section="pantheon">
+                        <h3 class="section-title">
+                            <span class="title-icon">◆</span>
+                            THE PANTHEON
+                            <span class="title-icon">◆</span>
+                        </h3>
+                        
+                        <!-- Deity Selector -->
+                        <div class="deity-selector">
+                            <button class="deity-btn active" data-deity="zeus" aria-pressed="true">
+                                <span class="deity-symbol">⚡</span>
+                                <span class="deity-name">Zeus</span>
+                            </button>
+                            <button class="deity-btn" data-deity="athena" aria-pressed="false">
+                                <span class="deity-symbol">🦉</span>
+                                <span class="deity-name">Athena</span>
+                            </button>
+                            <button class="deity-btn" data-deity="poseidon" aria-pressed="false">
+                                <span class="deity-symbol">🔱</span>
+                                <span class="deity-name">Poseidon</span>
+                            </button>
+                            <button class="deity-btn" data-deity="apollo" aria-pressed="false">
+                                <span class="deity-symbol">☀️</span>
+                                <span class="deity-name">Apollo</span>
+                            </button>
+                        </div>
+
+                        <!-- Deity Stories -->
+                        <div class="deity-stories">
+                            <div class="story-panel active" data-deity-panel="zeus">
+                                <div class="story-scroll">
+                                    <h4 class="story-title">The Titanomachy</h4>
+                                    <p class="story-text">
+                                        Zeus led the Olympians in a decade-long war against the Titans, his father Cronus 
+                                        and the elder gods. With cunning and might, he freed his siblings from Cronus's 
+                                        belly and claimed dominion over the cosmos, dividing realms among his brothers.
+                                    </p>
+                                    <div class="story-quote">
+                                        "From chaos rose order, and order demanded a king."
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="story-panel" data-deity-panel="athena">
+                                <div class="story-scroll">
+                                    <h4 class="story-title">Birth of Wisdom</h4>
+                                    <p class="story-text">
+                                        Athena emerged fully armored from Zeus's forehead, born of thought itself. Goddess 
+                                        of wisdom, warfare, and crafts, she became Athens's patron and champion of heroes. 
+                                        Her owl sees through darkness, her shield turns enemies to stone.
+                                    </p>
+                                    <div class="story-quote">
+                                        "In wisdom lies the true strength of mortals and gods alike."
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="story-panel" data-deity-panel="poseidon">
+                                <div class="story-scroll">
+                                    <h4 class="story-title">Lord of the Seas</h4>
+                                    <p class="story-text">
+                                        Poseidon rules the oceans with his mighty trident, commanding waves and earthquakes. 
+                                        Creator of horses and guardian of sailors, his temperament mirrors the sea—calm one 
+                                        moment, furious the next. He challenged Athena for Athens and lost.
+                                    </p>
+                                    <div class="story-quote">
+                                        "The sea bows to no one, yet even it must yield to fate."
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="story-panel" data-deity-panel="apollo">
+                                <div class="story-scroll">
+                                    <h4 class="story-title">God of Light & Music</h4>
+                                    <p class="story-text">
+                                        Apollo brings light, truth, and artistic inspiration. Twin of Artemis, he rides the 
+                                        sun chariot across the sky, his lyre creating melodies that move mountains. Prophet 
+                                        of Delphi, his oracle speaks truths mortals fear to hear.
+                                    </p>
+                                    <div class="story-quote">
+                                        "Truth illuminates, even when it burns."
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero's Journey Form -->
+                    <div class="content-section" data-section="journey">
+                        <h3 class="section-title">
+                            <span class="title-icon">◆</span>
+                            YOUR HERO'S JOURNEY
+                            <span class="title-icon">◆</span>
+                        </h3>
+                        
+                        <form id="heroForm" class="hero-form" novalidate>
+                            <div class="form-group">
+                                <label for="heroName" class="form-label">Hero's Name</label>
+                                <input 
+                                    type="text" 
+                                    id="heroName" 
+                                    class="form-input"
+                                    placeholder="Enter your name"
+                                    required
+                                    aria-required="true"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="questType" class="form-label">Sacred Quest</label>
+                                <select id="questType" class="form-input" required>
+                                    <option value="">Choose your quest...</option>
+                                    <option value="courage">Trial of Courage</option>
+                                    <option value="wisdom">Pursuit of Wisdom</option>
+                                    <option value="justice">Quest for Justice</option>
+                                    <option value="glory">Path to Glory</option>
+                                </select>
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Divine Patron</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="patron" value="zeus" class="radio-input">
+                                        <span class="radio-custom">⚡</span>
+                                        <span class="radio-text">Zeus - Authority</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="patron" value="athena" class="radio-input" checked>
+                                        <span class="radio-custom">🦉</span>
+                                        <span class="radio-text">Athena - Wisdom</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="patron" value="poseidon" class="radio-input">
+                                        <span class="radio-custom">🔱</span>
+                                        <span class="radio-text">Poseidon - Strength</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="patron" value="apollo" class="radio-input">
+                                        <span class="radio-custom">☀️</span>
+                                        <span class="radio-text">Apollo - Truth</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="form-submit-btn">
+                                <span class="btn-ornament-left">◈</span>
+                                <span class="btn-text">BEGIN YOUR QUEST</span>
+                                <span class="btn-ornament-right">◈</span>
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Modal Footer -->
+                <footer class="modal-footer">
+                    <div class="footer-divider">═══ ◈ ═══</div>
+                    <p class="footer-text">
+                        "The fate of heroes is to be remembered in song and story,
+                        their deeds echoing through eternity."
+                        <em>— Ancient Oracle</em>
+                    </p>
+                </footer>
+            </article>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+        <span class="toast-ornament">◈</span>
+        <span class="toast-message"></span>
+        <span class="toast-ornament">◈</span>
+    </div>
+
+    <script src="modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,978 @@
+/* ===================================
+   NATURE THEME - STYLES
+   Modal Masters Challenge
+   Round 1: Base Implementation
+   =================================== */
+
+/* CSS Custom Properties - Organic Color Palette */
+:root {
+  /* Nature color palette - Soft and organic */
+  --nature-primary: #2E7D32;      /* Forest green */
+  --nature-secondary: #66BB6A;    /* Light green */
+  --nature-accent: #81C784;       /* Soft green */
+  --nature-earth: #8D6E63;        /* Earthy brown */
+  --nature-sky: #81D4FA;          /* Sky blue */
+  --nature-sun: #FDD835;          /* Warm yellow */
+  
+  /* Seasonal colors (dynamic) */
+  --season-spring: #E8F5E9;
+  --season-summer: #FFF9C4;
+  --season-autumn: #FFE0B2;
+  --season-winter: #E3F2FD;
+  
+  /* Functional colors */
+  --nature-text: #1B5E20;
+  --nature-text-light: #388E3C;
+  --nature-bg: #F1F8E9;
+  --nature-overlay: rgba(46, 125, 50, 0.75);
+  
+  /* Spacing - Organic proportions */
+  --nature-spacing-xs: 0.5rem;
+  --nature-spacing-sm: 0.75rem;
+  --nature-spacing-md: 1.25rem;
+  --nature-spacing-lg: 2rem;
+  --nature-spacing-xl: 3rem;
+  
+  /* Animation timing - Natural rhythms */
+  --nature-duration-fast: 0.4s;
+  --nature-duration-medium: 0.8s;
+  --nature-duration-slow: 1.4s;
+  --nature-duration-bloom: 1.6s;
+  
+  /* Organic shapes */
+  --nature-border-radius: 24px;
+  --nature-soft-radius: 16px;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, 
+    var(--nature-bg) 0%, 
+    var(--season-spring) 50%,
+    var(--nature-accent) 100%);
+  color: var(--nature-text);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+/* ===================================
+   ANIMATED BACKGROUND
+   =================================== */
+
+.nature-background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-particle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(102, 187, 106, 0.3) 0%, 
+    rgba(102, 187, 106, 0) 70%);
+  animation: float 8s ease-in-out infinite;
+  animation-delay: var(--delay);
+  left: var(--x);
+  top: var(--y);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.2);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-10px, 20px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(15px, 10px) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+/* ===================================
+   PAGE LAYOUT
+   =================================== */
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--nature-spacing-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.content-wrapper {
+  text-align: center;
+  max-width: 700px;
+}
+
+.page-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--nature-primary);
+  margin-bottom: var(--nature-spacing-md);
+  letter-spacing: -0.5px;
+}
+
+.leaf-ornament {
+  display: inline-block;
+  margin: 0 var(--nature-spacing-sm);
+  animation: leafSway 3s ease-in-out infinite;
+  transform-origin: center top;
+}
+
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.page-description {
+  font-size: 1.15rem;
+  color: var(--nature-text-light);
+  margin-bottom: var(--nature-spacing-xl);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ===================================
+   TRIGGER BUTTON (Blooming Flower)
+   =================================== */
+
+.open-modal-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nature-spacing-sm);
+  padding: var(--nature-spacing-md) var(--nature-spacing-lg);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: white;
+  background: linear-gradient(135deg, var(--nature-primary) 0%, var(--nature-secondary) 100%);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all var(--nature-duration-fast) ease;
+  font-family: inherit;
+  box-shadow: 
+    0 4px 20px rgba(46, 125, 50, 0.25),
+    0 8px 40px rgba(46, 125, 50, 0.15);
+}
+
+.open-modal-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 6px 30px rgba(46, 125, 50, 0.35),
+    0 12px 50px rgba(46, 125, 50, 0.2);
+}
+
+.open-modal-btn:hover .btn-bloom {
+  animation: bloomPulse 0.6s ease-out;
+}
+
+.open-modal-btn:active {
+  transform: translateY(-1px);
+}
+
+.open-modal-btn:focus-visible {
+  outline: 3px solid var(--nature-secondary);
+  outline-offset: 5px;
+}
+
+.btn-bloom {
+  width: 32px;
+  height: 32px;
+}
+
+.bloom-center {
+  fill: var(--nature-sun);
+}
+
+.bloom-petal {
+  fill: white;
+  opacity: 0.9;
+}
+
+@keyframes bloomPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2) rotate(15deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ===================================
+   MODAL OVERLAY
+   =================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--nature-spacing-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--nature-duration-medium) ease, 
+              visibility var(--nature-duration-medium) ease;
+}
+
+.modal-overlay[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--nature-overlay);
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, 
+    transparent 0%, 
+    rgba(46, 125, 50, 0.3) 100%);
+  animation: backdropPulse 3s ease-in-out infinite;
+}
+
+@keyframes backdropPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+/* ===================================
+   MODAL CONTAINER - BLOOMING ANIMATION
+   =================================== */
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  max-height: 90vh;
+  background: white;
+  border-radius: var(--nature-border-radius);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(102, 187, 106, 0.2);
+  overflow: hidden;
+}
+
+/* Petal Bloom Animation */
+.petal-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--nature-secondary), var(--nature-accent));
+  border-radius: 50% 50% 50% 0;
+  transform-origin: 0% 0%;
+  opacity: 0;
+  transition: all var(--nature-duration-bloom) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 6-petal arrangement */
+.petal-1 { transform: translate(-50%, -50%) rotate(0deg) scale(0); }
+.petal-2 { transform: translate(-50%, -50%) rotate(60deg) scale(0); }
+.petal-3 { transform: translate(-50%, -50%) rotate(120deg) scale(0); }
+.petal-4 { transform: translate(-50%, -50%) rotate(180deg) scale(0); }
+.petal-5 { transform: translate(-50%, -50%) rotate(240deg) scale(0); }
+.petal-6 { transform: translate(-50%, -50%) rotate(300deg) scale(0); }
+
+/* Blooming effect when modal opens */
+.modal-overlay[aria-hidden="false"] .petal {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(var(--petal-rotate)) scale(1.5);
+}
+
+.modal-overlay[aria-hidden="false"] .petal-1 { 
+  --petal-rotate: 0deg;
+  transition-delay: 0s; 
+}
+.modal-overlay[aria-hidden="false"] .petal-2 { 
+  --petal-rotate: 60deg;
+  transition-delay: 0.08s; 
+}
+.modal-overlay[aria-hidden="false"] .petal-3 { 
+  --petal-rotate: 120deg;
+  transition-delay: 0.16s; 
+}
+.modal-overlay[aria-hidden="false"] .petal-4 { 
+  --petal-rotate: 180deg;
+  transition-delay: 0.24s; 
+}
+.modal-overlay[aria-hidden="false"] .petal-5 { 
+  --petal-rotate: 240deg;
+  transition-delay: 0.32s; 
+}
+.modal-overlay[aria-hidden="false"] .petal-6 { 
+  --petal-rotate: 300deg;
+  transition-delay: 0.4s; 
+}
+
+/* Hide petals after bloom */
+.modal-overlay[aria-hidden="false"] .petal-wrapper {
+  animation: hidePetals 0.5s ease forwards;
+  animation-delay: var(--nature-duration-bloom);
+}
+
+@keyframes hidePetals {
+  to { opacity: 0; pointer-events: none; }
+}
+
+/* ===================================
+   MODAL CONTENT
+   =================================== */
+
+.modal-content {
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--nature-spacing-xl);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity var(--nature-duration-slow) ease var(--nature-duration-bloom),
+              transform var(--nature-duration-slow) ease var(--nature-duration-bloom);
+  scroll-behavior: smooth;
+}
+
+.modal-overlay[aria-hidden="false"] .modal-content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Custom Scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: var(--nature-bg);
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: var(--nature-accent);
+  border-radius: 10px;
+  border: 2px solid var(--nature-bg);
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: var(--nature-secondary);
+}
+
+/* Close Button - Organic Circle */
+.close-modal-btn {
+  position: absolute;
+  top: var(--nature-spacing-md);
+  right: var(--nature-spacing-md);
+  width: 44px;
+  height: 44px;
+  background: white;
+  border: 2px solid var(--nature-accent);
+  border-radius: 50%;
+  color: var(--nature-primary);
+  cursor: pointer;
+  transition: all var(--nature-duration-fast) ease;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.close-modal-btn:hover {
+  background: var(--nature-accent);
+  transform: rotate(90deg) scale(1.1);
+  border-color: var(--nature-primary);
+}
+
+.close-modal-btn:focus-visible {
+  outline: 3px solid var(--nature-secondary);
+  outline-offset: 4px;
+}
+
+.close-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===================================
+   MODAL HEADER
+   =================================== */
+
+.modal-header {
+  text-align: center;
+  padding-bottom: var(--nature-spacing-lg);
+  margin-bottom: var(--nature-spacing-lg);
+  position: relative;
+}
+
+.header-decoration {
+  margin-bottom: var(--nature-spacing-md);
+}
+
+.growth-lines {
+  width: 200px;
+  height: 60px;
+  color: var(--nature-accent);
+  animation: growthSway 4s ease-in-out infinite;
+}
+
+@keyframes growthSway {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.modal-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 300;
+  color: var(--nature-primary);
+  margin-bottom: var(--nature-spacing-xs);
+  letter-spacing: -0.5px;
+}
+
+.modal-subtitle {
+  font-size: 1.1rem;
+  color: var(--nature-text-light);
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* ===================================
+   MODAL BODY
+   =================================== */
+
+.modal-body {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.content-section {
+  margin-bottom: var(--nature-spacing-xl);
+}
+
+.content-text {
+  color: var(--nature-text);
+  margin-bottom: var(--nature-spacing-lg);
+  font-weight: 300;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--nature-primary);
+  margin-bottom: var(--nature-spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--nature-spacing-xs);
+}
+
+.title-icon {
+  font-size: 1.8rem;
+}
+
+/* Ecosystem Grid - Organic Cards */
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--nature-spacing-md);
+  margin: var(--nature-spacing-lg) 0;
+}
+
+.eco-card {
+  background: var(--nature-bg);
+  border-radius: var(--nature-soft-radius);
+  padding: var(--nature-spacing-md);
+  text-align: center;
+  transition: all var(--nature-duration-fast) ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.eco-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, 
+    transparent 40%, 
+    var(--nature-accent) 100%);
+  opacity: 0;
+  transition: opacity var(--nature-duration-fast) ease;
+}
+
+.eco-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(46, 125, 50, 0.15);
+  border-color: var(--nature-accent);
+}
+
+.eco-card:hover::before {
+  opacity: 0.1;
+}
+
+.eco-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--nature-spacing-xs);
+  position: relative;
+  z-index: 1;
+}
+
+.eco-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--nature-primary);
+  margin-bottom: var(--nature-spacing-xs);
+  position: relative;
+  z-index: 1;
+}
+
+.eco-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--nature-secondary);
+  margin-bottom: var(--nature-spacing-xs);
+  position: relative;
+  z-index: 1;
+}
+
+.eco-detail {
+  font-size: 0.9rem;
+  color: var(--nature-text-light);
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================
+   SEASON SELECTOR
+   =================================== */
+
+.seasons-selector {
+  display: flex;
+  gap: var(--nature-spacing-xs);
+  margin-bottom: var(--nature-spacing-lg);
+  flex-wrap: wrap;
+}
+
+.season-btn {
+  flex: 1;
+  min-width: 100px;
+  padding: var(--nature-spacing-sm) var(--nature-spacing-md);
+  background: white;
+  border: 2px solid var(--nature-accent);
+  border-radius: 50px;
+  color: var(--nature-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--nature-duration-fast) ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.season-btn:hover {
+  background: var(--nature-bg);
+  transform: translateY(-2px);
+}
+
+.season-btn.active {
+  background: linear-gradient(135deg, var(--nature-primary), var(--nature-secondary));
+  color: white;
+  border-color: var(--nature-primary);
+}
+
+.season-btn:focus-visible {
+  outline: 3px solid var(--nature-secondary);
+  outline-offset: 3px;
+}
+
+.season-emoji {
+  font-size: 1.5rem;
+}
+
+.season-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Season Content Panels */
+.season-content {
+  position: relative;
+  min-height: 250px;
+}
+
+.season-panel {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--nature-duration-medium) ease,
+              visibility var(--nature-duration-medium) ease;
+  background: var(--nature-bg);
+  border-radius: var(--nature-soft-radius);
+  padding: var(--nature-spacing-lg);
+}
+
+.season-panel.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}
+
+.season-heading {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--nature-primary);
+  margin-bottom: var(--nature-spacing-sm);
+}
+
+.season-description {
+  font-weight: 300;
+  margin-bottom: var(--nature-spacing-md);
+  line-height: 1.7;
+}
+
+.season-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--nature-spacing-xs);
+}
+
+.season-features li {
+  font-weight: 300;
+  padding-left: var(--nature-spacing-md);
+  position: relative;
+}
+
+/* ===================================
+   CONSERVATION FORM
+   =================================== */
+
+.conservation-form {
+  background: var(--nature-bg);
+  padding: var(--nature-spacing-lg);
+  border-radius: var(--nature-soft-radius);
+  border: 2px solid var(--nature-accent);
+}
+
+.form-group {
+  margin-bottom: var(--nature-spacing-md);
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  color: var(--nature-text);
+  margin-bottom: var(--nature-spacing-xs);
+  font-size: 0.95rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--nature-spacing-sm) var(--nature-spacing-md);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--nature-text);
+  background: white;
+  border: 2px solid var(--nature-accent);
+  border-radius: 12px;
+  transition: all var(--nature-duration-fast) ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--nature-primary);
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+}
+
+.form-input:invalid:not(:placeholder-shown) {
+  border-color: #E57373;
+}
+
+.form-error {
+  display: block;
+  color: #E57373;
+  font-size: 0.875rem;
+  margin-top: var(--nature-spacing-xs);
+  min-height: 1.2em;
+  font-weight: 300;
+}
+
+/* Radio Group */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nature-spacing-sm);
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: var(--nature-spacing-xs);
+  cursor: pointer;
+  padding: var(--nature-spacing-xs);
+  border-radius: 8px;
+  transition: background var(--nature-duration-fast) ease;
+}
+
+.radio-label:hover {
+  background: rgba(102, 187, 106, 0.1);
+}
+
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--nature-accent);
+  border-radius: 50%;
+  position: relative;
+  transition: all var(--nature-duration-fast) ease;
+}
+
+.radio-input:checked + .radio-custom {
+  border-color: var(--nature-primary);
+}
+
+.radio-input:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: var(--nature-primary);
+  border-radius: 50%;
+}
+
+.radio-text {
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: var(--nature-spacing-md);
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: white;
+  background: linear-gradient(135deg, var(--nature-primary), var(--nature-secondary));
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--nature-duration-fast) ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nature-spacing-xs);
+}
+
+.form-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+}
+
+.form-submit-btn:active {
+  transform: translateY(0);
+}
+
+.form-submit-btn:focus-visible {
+  outline: 3px solid var(--nature-accent);
+  outline-offset: 4px;
+}
+
+.btn-leaf {
+  font-size: 1.3rem;
+}
+
+/* ===================================
+   MODAL FOOTER
+   =================================== */
+
+.modal-footer {
+  text-align: center;
+  padding-top: var(--nature-spacing-lg);
+  margin-top: var(--nature-spacing-xl);
+  border-top: 2px solid var(--nature-bg);
+}
+
+.footer-decoration {
+  margin-bottom: var(--nature-spacing-md);
+}
+
+.roots {
+  width: 300px;
+  height: 40px;
+  max-width: 100%;
+  color: var(--nature-accent);
+}
+
+.footer-text {
+  font-size: 1rem;
+  color: var(--nature-text-light);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.footer-text em {
+  display: block;
+  margin-top: var(--nature-spacing-xs);
+  font-size: 0.9rem;
+}
+
+/* ===================================
+   TOAST NOTIFICATION
+   =================================== */
+
+.toast {
+  position: fixed;
+  bottom: var(--nature-spacing-lg);
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: white;
+  color: var(--nature-text);
+  padding: var(--nature-spacing-md) var(--nature-spacing-lg);
+  border-radius: 50px;
+  border: 2px solid var(--nature-accent);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+  transition: transform var(--nature-duration-fast) ease;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nature-spacing-xs);
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-icon {
+  font-size: 1.3rem;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --nature-spacing-xl: 2rem;
+    --nature-spacing-lg: 1.5rem;
+  }
+
+  .modal-content {
+    padding: var(--nature-spacing-lg);
+  }
+
+  .ecosystem-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seasons-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seasons-selector {
+    flex-direction: column;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY - REDUCED MOTION
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .petal {
+    transition: none;
+  }
+
+  .floating-particle {
+    animation: none;
+  }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+  .open-modal-btn,
+  .close-modal-btn,
+  .modal-backdrop,
+  .petal-wrapper,
+  .floating-particle {
+    display: none !important;
+  }
+
+  .modal-overlay {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    opacity: 1;
+    transform: none;
+    max-height: none;
+    overflow: visible;
+  }
+}

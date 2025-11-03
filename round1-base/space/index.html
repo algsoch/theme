@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Modal - Modal Masters</title>
+    <meta name="description" content="A minimal, futuristic modal experience with orbital animations and cosmic aesthetics">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div class="starfield">
+        <div class="star star-1"></div>
+        <div class="star star-2"></div>
+        <div class="star star-3"></div>
+        <div class="star star-4"></div>
+        <div class="star star-5"></div>
+        <div class="star star-6"></div>
+        <div class="star star-7"></div>
+        <div class="star star-8"></div>
+        <div class="star star-9"></div>
+        <div class="star star-10"></div>
+    </div>
+
+    <!-- Page Content -->
+    <main class="page-container">
+        <div class="content-wrapper">
+            <h1 class="page-title" data-text="COSMIC EXPLORATION">
+                COSMIC EXPLORATION
+            </h1>
+            
+            <p class="page-description">
+                Journey through the vast expanse of space. Experience zero-gravity interfaces,
+                orbital mechanics, and the infinite beauty of the cosmos.
+            </p>
+
+            <!-- Trigger Button -->
+            <button 
+                id="openModalBtn" 
+                class="open-modal-btn"
+                aria-label="Launch Space Experience"
+                aria-haspopup="dialog"
+            >
+                <div class="btn-orbital">
+                    <div class="btn-planet"></div>
+                    <div class="btn-ring"></div>
+                </div>
+                <span class="btn-text">LAUNCH MISSION</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+
+        <!-- Grid overlay for sci-fi effect -->
+        <div class="grid-overlay" aria-hidden="true"></div>
+    </main>
+
+    <!-- Modal Structure -->
+    <div 
+        id="spaceModal" 
+        class="modal-overlay" 
+        role="dialog" 
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
+        hidden
+    >
+        <!-- Deep Space Backdrop -->
+        <div class="modal-backdrop" aria-hidden="true">
+            <div class="nebula-glow"></div>
+        </div>
+
+        <!-- Orbital Ring Animation -->
+        <div class="orbital-rings" aria-hidden="true">
+            <div class="orbit-ring orbit-1"></div>
+            <div class="orbit-ring orbit-2"></div>
+            <div class="orbit-ring orbit-3"></div>
+        </div>
+
+        <!-- Modal Container -->
+        <div class="modal-container">
+            <!-- Scanning Lines Effect -->
+            <div class="scan-lines" aria-hidden="true"></div>
+
+            <!-- Main Modal Content -->
+            <article class="modal-content" tabindex="-1">
+                <!-- Close Button -->
+                <button 
+                    id="closeModalBtn" 
+                    class="close-modal-btn"
+                    aria-label="Close modal"
+                    type="button"
+                >
+                    <svg viewBox="0 0 24 24" class="close-icon" aria-hidden="true">
+                        <path d="M12 2 L12 22 M2 12 L22 12" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <div class="close-pulse"></div>
+                </button>
+
+                <!-- Header -->
+                <header class="modal-header">
+                    <div class="header-grid" aria-hidden="true">
+                        <div class="grid-line h-line"></div>
+                        <div class="grid-line v-line"></div>
+                    </div>
+                    
+                    <div class="mission-badge" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" class="badge-svg">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                            <polygon points="50,20 60,40 80,45 65,60 70,80 50,70 30,80 35,60 20,45 40,40" 
+                                     fill="none" stroke="currentColor" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    
+                    <h2 id="modalTitle" class="modal-title">
+                        MARS COLONIZATION
+                    </h2>
+                    <p class="modal-subtitle">Mission Status: Active</p>
+                    <div class="title-line" aria-hidden="true"></div>
+                </header>
+
+                <!-- Content Sections -->
+                <section class="modal-body">
+                    <div class="content-section" data-section="intro">
+                        <p id="modalDescription" class="content-text">
+                            The red planet awaits. Mars represents humanity's next giant leap—a 
+                            multi-planetary civilization beginning with our nearest neighbor. 
+                            Advanced propulsion systems will carry the first colonists within the next decade.
+                        </p>
+
+                        <!-- Mission Stats -->
+                        <div class="stats-grid">
+                            <div class="stat-panel" data-stat="distance">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 50 50" class="icon-svg">
+                                        <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="25" y1="5" x2="25" y2="15" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="25" y1="35" x2="25" y2="45" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-label">DISTANCE</div>
+                                <div class="stat-value">225M KM</div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="--fill: 75%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-panel" data-stat="duration">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 50 50" class="icon-svg">
+                                        <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M 25,25 L 25,10 M 25,25 L 35,30" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-label">TRAVEL TIME</div>
+                                <div class="stat-value">9 MONTHS</div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="--fill: 60%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-panel" data-stat="crew">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 50 50" class="icon-svg">
+                                        <circle cx="25" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M 15,35 Q 15,28 25,28 Q 35,28 35,35" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-label">CREW SIZE</div>
+                                <div class="stat-value">100+</div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="--fill: 85%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-panel" data-stat="resources">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 50 50" class="icon-svg">
+                                        <rect x="15" y="10" width="20" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="20" y1="20" x2="30" y2="20" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="20" y1="25" x2="30" y2="25" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-label">RESOURCES</div>
+                                <div class="stat-value">OPTIMAL</div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="--fill: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" data-section="planets">
+                        <h3 class="section-title">
+                            <span class="title-bracket">[</span>
+                            PLANETARY TARGETS
+                            <span class="title-bracket">]</span>
+                        </h3>
+                        
+                        <!-- Planet Selector -->
+                        <div class="planet-selector">
+                            <button class="planet-btn active" data-planet="mars" aria-pressed="true">
+                                <div class="planet-orb mars-orb"></div>
+                                <span class="planet-name">MARS</span>
+                            </button>
+                            <button class="planet-btn" data-planet="europa" aria-pressed="false">
+                                <div class="planet-orb europa-orb"></div>
+                                <span class="planet-name">EUROPA</span>
+                            </button>
+                            <button class="planet-btn" data-planet="titan" aria-pressed="false">
+                                <div class="planet-orb titan-orb"></div>
+                                <span class="planet-name">TITAN</span>
+                            </button>
+                            <button class="planet-btn" data-planet="enceladus" aria-pressed="false">
+                                <div class="planet-orb enceladus-orb"></div>
+                                <span class="planet-name">ENCELADUS</span>
+                            </button>
+                        </div>
+
+                        <!-- Planet Info Panels -->
+                        <div class="planet-info">
+                            <div class="planet-panel active" data-planet-panel="mars">
+                                <div class="panel-header">MARS // THE RED PLANET</div>
+                                <p class="panel-text">
+                                    Fourth planet from the Sun. Thin atmosphere, polar ice caps, 
+                                    evidence of ancient water. Prime target for terraforming and permanent settlement.
+                                </p>
+                                <ul class="panel-specs">
+                                    <li><span class="spec-key">GRAVITY:</span> <span class="spec-value">0.38g</span></li>
+                                    <li><span class="spec-key">ATMOSPHERE:</span> <span class="spec-value">95% CO₂</span></li>
+                                    <li><span class="spec-key">DAY LENGTH:</span> <span class="spec-value">24.6h</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="planet-panel" data-planet-panel="europa">
+                                <div class="panel-header">EUROPA // ICE MOON</div>
+                                <p class="panel-text">
+                                    Jupiter's moon with subsurface ocean beneath ice crust. Potential for 
+                                    extraterrestrial life in deep hydrothermal vents.
+                                </p>
+                                <ul class="panel-specs">
+                                    <li><span class="spec-key">GRAVITY:</span> <span class="spec-value">0.13g</span></li>
+                                    <li><span class="spec-key">SURFACE:</span> <span class="spec-value">Ice Shell</span></li>
+                                    <li><span class="spec-key">OCEAN DEPTH:</span> <span class="spec-value">100km</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="planet-panel" data-planet-panel="titan">
+                                <div class="panel-header">TITAN // HYDROCARBON WORLD</div>
+                                <p class="panel-text">
+                                    Saturn's largest moon with thick atmosphere and liquid methane lakes. 
+                                    Only moon with stable surface liquids.
+                                </p>
+                                <ul class="panel-specs">
+                                    <li><span class="spec-key">GRAVITY:</span> <span class="spec-value">0.14g</span></li>
+                                    <li><span class="spec-key">ATMOSPHERE:</span> <span class="spec-value">Dense N₂</span></li>
+                                    <li><span class="spec-key">LAKES:</span> <span class="spec-value">Methane/Ethane</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="planet-panel" data-planet-panel="enceladus">
+                                <div class="panel-header">ENCELADUS // GEYSER MOON</div>
+                                <p class="panel-text">
+                                    Tiny Saturn moon ejecting water plumes from subsurface ocean. 
+                                    Active geology and potential habitability.
+                                </p>
+                                <ul class="panel-specs">
+                                    <li><span class="spec-key">GRAVITY:</span> <span class="spec-value">0.01g</span></li>
+                                    <li><span class="spec-key">PLUMES:</span> <span class="spec-value">H₂O + Organics</span></li>
+                                    <li><span class="spec-key">TEMPERATURE:</span> <span class="spec-value">-201°C</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mission Registration Form -->
+                    <div class="content-section" data-section="registration">
+                        <h3 class="section-title">
+                            <span class="title-bracket">[</span>
+                            MISSION REGISTRATION
+                            <span class="title-bracket">]</span>
+                        </h3>
+                        
+                        <form id="missionForm" class="mission-form" novalidate>
+                            <div class="form-group">
+                                <label for="astronautName" class="form-label">CALLSIGN</label>
+                                <input 
+                                    type="text" 
+                                    id="astronautName" 
+                                    class="form-input"
+                                    placeholder="Enter your callsign"
+                                    required
+                                    aria-required="true"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="missionRole" class="form-label">SPECIALIST ROLE</label>
+                                <select id="missionRole" class="form-input" required>
+                                    <option value="">SELECT ROLE...</option>
+                                    <option value="pilot">PILOT</option>
+                                    <option value="engineer">ENGINEER</option>
+                                    <option value="scientist">SCIENTIST</option>
+                                    <option value="medic">MEDICAL OFFICER</option>
+                                    <option value="commander">MISSION COMMANDER</option>
+                                </select>
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="launchDate" class="form-label">LAUNCH WINDOW</label>
+                                <input 
+                                    type="date" 
+                                    id="launchDate" 
+                                    class="form-input"
+                                    required
+                                    aria-required="true"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">MISSION DURATION</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="duration" value="short" class="radio-input">
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-text">SHORT (2 YEARS)</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="duration" value="standard" class="radio-input" checked>
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-text">STANDARD (5 YEARS)</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="duration" value="extended" class="radio-input">
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-text">EXTENDED (10+ YEARS)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="form-submit-btn">
+                                <span class="btn-icon">🚀</span>
+                                <span class="btn-text">CONFIRM MISSION</span>
+                                <div class="btn-scanner"></div>
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Modal Footer -->
+                <footer class="modal-footer">
+                    <div class="footer-divider" aria-hidden="true"></div>
+                    <p class="footer-text">
+                        "That's one small step for man, one giant leap for mankind."
+                        <em>— Neil Armstrong, 1969</em>
+                    </p>
+                    <div class="footer-code">MISSION-CTRL-2025</div>
+                </footer>
+            </article>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+        <div class="toast-scanner"></div>
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="modal.js"></script>
+</body>
+</html>
