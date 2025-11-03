@@ -10,145 +10,323 @@ console.log('=================================================');
   
   console.log('✅ IIFE Started');
 
-  // STORY CHAPTERS - Immersive visual storytelling beyond monuments
+  // STORY CHAPTERS - Making Indian Architecture Famous Worldwide! 🏛️✨
   const chapters = [
     {
       id: 0,
-      title: "The Artisans: Hands That Built Wonders",
-      description: "Meet the forgotten heroes - stone carvers who spent lifetimes mastering one technique, learning from fathers and grandfathers. A single pillar? 3 years of hand-carving by 20 craftsmen. This isn't construction - it's devotion turned into art.",
+      title: "Gateway to Grandeur",
+      subtitle: "Welcome | स्वागत | Namaste",
+      description: "Welcome, traveler! Step through these majestic arches. In India, grand gateways mark entrances to ancient palaces and temples, each inviting you to a world of history.",
       highlights: [
-        "👷 Generational knowledge: Skills passed down for 1000+ years",
-        "🔨 One chisel, infinite patience: 8-hour days carving a single flower",
-        "🎨 Women artisans painting frescoes using natural pigments from rocks"
+        "🏛️ Grand Gateways: Every palace and temple begins with an invitation to wonder",
+        "🎨 Intricate Carvings: Each arch tells stories of welcome and prosperity",
+        "� Symbol of Hospitality: Indian architecture opens its arms to all travelers"
       ],
-      imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
-      story: "In Khajuraho, archaeologists found tools from 1000 CE still sharp enough to carve marble. The secret? Tempering techniques modern science only discovered in 1950."
+      imageUrl: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800",
+      story: "The Gateway of India in Mumbai welcomed King George V in 1911. Today, it welcomes millions, standing as a symbol of Indian hospitality and architectural grandeur.",
+      interactive: {
+        type: "gateway-animation",
+        tooltip: "🚪 Tap to open the grand gateway!",
+        fact: "Indian gateways often face east to catch the first rays of the rising sun—a symbol of new beginnings!"
+      },
+      visual: `
+        <svg viewBox="0 0 400 400" class="visual-svg gateway-svg">
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#FFD700"/>
+              <stop offset="100%" style="stop-color:#DAA520"/>
+            </linearGradient>
+          </defs>
+          <!-- Left Door -->
+          <rect class="door-left" x="50" y="100" width="140" height="250" fill="url(#goldGrad)" rx="10">
+            <animate attributeName="x" values="50;20;50" dur="6s" repeatCount="indefinite"/>
+          </rect>
+          <!-- Right Door -->
+          <rect class="door-right" x="210" y="100" width="140" height="250" fill="url(#goldGrad)" rx="10">
+            <animate attributeName="x" values="210;240;210" dur="6s" repeatCount="indefinite"/>
+          </rect>
+          <!-- Arch -->
+          <path d="M 30,100 Q 200,30 370,100" fill="none" stroke="#DAA520" stroke-width="6" opacity="0.8">
+            <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+          </path>
+          <!-- Welcome Symbol -->
+          <circle cx="200" cy="225" r="40" fill="#FFD700" opacity="0.3">
+            <animate attributeName="r" values="40;50;40" dur="4s" repeatCount="indefinite"/>
+          </circle>
+          <text x="200" y="240" text-anchor="middle" fill="#8B4513" font-size="48" font-weight="bold">🙏</text>
+        </svg>
+      `
     },
     {
       id: 1,
-      title: "Materials That Tell Stories",
-      description: "Forget boring concrete. Indian builders used red sandstone that changes color at sunrise, black granite that survives 2000 years, marble so pure it glows in moonlight. Each material chosen for meaning, not just strength.",
+      title: "Whispering Walls",
+      subtitle: "History Speaks from Every Surface",
+      description: "Pause… Listen to the walls! Here, every stone and fresco retells stories of gods, battles, poets, and daily life. India's palaces and temples are living museums, where history speaks from every surface.",
       highlights: [
-        "🪨 Sandstone from Rajasthan desert: Turns golden at sunset",
-        "⚫ Basalt from volcanic hills: Carved into 10-ton temple pillars",
-        "� White marble from Makrana: Same quarries as Taj Mahal, still working 400 years later"
+        "📜 Living Museums: Walls covered in frescoes depicting ancient festivals and myths",
+        "🎭 Stories in Stone: Every carving is a chapter—love stories, epic battles, daily life",
+        "🖼️ Natural Pigments: Artists used minerals, plants, and gems to create colors that last 1000+ years"
       ],
-      imageUrl: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800",
-      story: "The Meenakshi Temple uses 14 different types of stone from 14 different regions - a geological map of India built in 1600 CE.",
+      imageUrl: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+      story: "At Ajanta Caves, wall paintings from 200 BCE still show vibrant blues from lapis lazuli, reds from ochre, and greens from copper—colors that have survived 2,200 years!",
+      interactive: {
+        type: "wall-stories",
+        tooltip: "🔍 Hover over frescoes to discover their secrets!",
+        fact: "The Ramayana epic is carved across 1,200 panels at Angkor Wat—built by Indian artisans in Cambodia!"
+      },
       visual: `
-        <svg viewBox="0 0 400 400" class="visual-svg">
-          <rect x="50" y="150" width="300" height="200" fill="#8B4513" rx="10">
-            <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+        <svg viewBox="0 0 400 400" class="visual-svg fresco-svg">
+          <!-- Wall Background -->
+          <rect x="50" y="80" width="300" height="280" fill="#8B4513" opacity="0.9" rx="5"/>
+          
+          <!-- Fresco Panels (hoverable) -->
+          <g class="fresco-panel" data-story="Holi Festival">
+            <rect x="70" y="100" width="80" height="80" fill="#FF6B6B" opacity="0.7" rx="3">
+              <animate attributeName="opacity" values="0.7;0.9;0.7" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            <circle cx="110" cy="140" r="15" fill="#FFD700"/>
+            <text x="110" y="145" text-anchor="middle" font-size="20">🎨</text>
+          </g>
+          
+          <g class="fresco-panel" data-story="Battle Scene">
+            <rect x="160" y="100" width="80" height="80" fill="#4ECDC4" opacity="0.7" rx="3">
+              <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" repeatCount="indefinite"/>
+            </rect>
+            <text x="200" y="145" text-anchor="middle" font-size="24">⚔️</text>
+          </g>
+          
+          <g class="fresco-panel" data-story="Love Story">
+            <rect x="250" y="100" width="80" height="80" fill="#FFE66D" opacity="0.7" rx="3">
+              <animate attributeName="opacity" values="0.7;0.9;0.7" dur="3.5s" repeatCount="indefinite"/>
+            </rect>
+            <text x="290" y="145" text-anchor="middle" font-size="24">💕</text>
+          </g>
+          
+          <!-- Ancient Text -->
+          <path d="M 80,220 Q 200,200 320,220" stroke="#DAA520" stroke-width="2" fill="none" opacity="0.6"/>
+          <path d="M 80,250 Q 200,230 320,250" stroke="#DAA520" stroke-width="2" fill="none" opacity="0.6"/>
+          <path d="M 80,280 Q 200,260 320,280" stroke="#DAA520" stroke-width="2" fill="none" opacity="0.6"/>
+          
+          <!-- Decorative Border -->
+          <rect x="50" y="80" width="300" height="280" fill="none" stroke="#DAA520" stroke-width="3" rx="5">
+            <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
           </rect>
-          <rect x="80" y="100" width="60" height="100" fill="#A0522D"/>
-          <rect x="260" y="100" width="60" height="100" fill="#A0522D"/>
-          <polygon points="110,100 110,50 140,50" fill="#654321"/>
-          <polygon points="290,100 290,50 320,50" fill="#654321"/>
-          <circle cx="200" cy="250" r="20" fill="#FFD700" opacity="0.8">
-            <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
-          </circle>
         </svg>
       `
     },
     {
       id: 2,
-      title: "Water Engineers of the Desert",
-      description: "In 50°C heat with no rivers, communities built stepwells - underground palaces that store water and stay cool. These weren't engineers with degrees. They were villagers who understood physics through generations of trial and death.",
+      title: "Lattice of Light",
+      subtitle: "Stone That Dances with Shadows",
+      description: "Sunlight streams through delicate jali screens—stone lattices that weave dazzling shadows and cool the halls. No two patterns are ever the same!",
       highlights: [
-        "💧 Rani ki Vav: 7 stories deep, 800 sculptures, still collecting groundwater",
-        "🧮 Mathematical precision: Stairs angled exactly 17° for optimal coolness",
-        "👥 Community project: Entire village carved one stepwell over 20 years"
+        "🌞 Jali Screens: Intricate stone lattices that filter light into magical patterns",
+        "❄️ Natural Cooling: These screens cut heat by 30% while creating art on your walls",
+        "🎨 Unique Designs: Each jali is a masterpiece—geometric fractals carved by hand"
       ],
-      imageUrl: "https://images.unsplash.com/photo-1609920658906-8223bd289001?w=800",
-      story: "Chand Baori stepwell has 3,500 steps and 13 stories. If you fell from the top, you'd fall for 6 full seconds before hitting water 100 feet down.",
+      imageUrl: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800",
+      story: "The Hawa Mahal has 953 jali windows! On a sunny day, the palace floor becomes a canvas of 953 unique shadow patterns dancing throughout the day.",
+      interactive: {
+        type: "jali-pattern",
+        tooltip: "💡 Watch how light creates magic through stone!",
+        fact: "Jali screens are like ancient 3D printers—masters carved them layer by layer, creating impossible geometric patterns!"
+      },
       visual: `
-        <svg viewBox="0 0 400 400" class="visual-svg">
+        <svg viewBox="0 0 400 400" class="visual-svg jali-svg">
           <defs>
-            <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:#87CEEB"/>
-              <stop offset="100%" style="stop-color:#4682B4"/>
-            </linearGradient>
+            <pattern id="jaliPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <circle cx="20" cy="20" r="8" fill="#DAA520" opacity="0.6"/>
+              <rect x="12" y="12" width="16" height="16" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+            </pattern>
+            <radialGradient id="lightBeam">
+              <stop offset="0%" style="stop-color:#FFF8DC" stop-opacity="0.9"/>
+              <stop offset="100%" style="stop-color:#DAA520" stop-opacity="0.2"/>
+            </radialGradient>
           </defs>
-          <path d="M100,100 L300,100 L280,350 L120,350 Z" fill="url(#waterGrad)" opacity="0.8">
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="0,0;0,5;0,0"
-              dur="4s"
-              repeatCount="indefinite"/>
-          </path>
-          <line x1="120" y1="150" x2="280" y2="150" stroke="#fff" stroke-width="3" opacity="0.6"/>
-          <line x1="130" y1="200" x2="270" y2="200" stroke="#fff" stroke-width="3" opacity="0.6"/>
-          <line x1="140" y1="250" x2="260" y2="250" stroke="#fff" stroke-width="3" opacity="0.6"/>
-          <circle cx="200" cy="320" r="20" fill="#FFD700" opacity="0.5">
-            <animate attributeName="r" values="20;25;20" dur="3s" repeatCount="indefinite"/>
+          
+          <!-- Jali Screen Structure -->
+          <rect x="80" y="100" width="240" height="220" fill="url(#jaliPattern)" opacity="0.9">
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="4s" repeatCount="indefinite"/>
+          </rect>
+          
+          <!-- Light Beams Through Jali -->
+          <g class="light-beams">
+            <ellipse cx="140" cy="150" rx="30" ry="60" fill="url(#lightBeam)" transform="rotate(-15 140 150)">
+              <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="200" cy="180" rx="35" ry="70" fill="url(#lightBeam)" transform="rotate(10 200 180)">
+              <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.5s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="260" cy="160" rx="30" ry="65" fill="url(#lightBeam)" transform="rotate(-20 260 160)">
+              <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/>
+            </ellipse>
+          </g>
+          
+          <!-- Shadow Patterns on Floor -->
+          <g opacity="0.4">
+            <circle cx="150" cy="340" r="15" fill="#8B4513">
+              <animate attributeName="r" values="15;18;15" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="220" cy="350" r="20" fill="#8B4513">
+              <animate attributeName="r" values="20;23;20" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="280" cy="345" r="12" fill="#8B4513">
+              <animate attributeName="r" values="12;15;12" dur="4s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          
+          <!-- Sun Symbol -->
+          <circle cx="350" cy="70" r="25" fill="#FFD700">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
           </circle>
         </svg>
       `
     },
     {
       id: 3,
-      title: "Climate Warriors of 1200 CE",
-      description: "No electricity. No AC. Yet buildings stayed 15°C cooler inside. Wind catchers, water channels, thick walls, courtyards that create natural convection - they understood physics without formulas.",
+      title: "Symmetry in Spirit",
+      subtitle: "Where Heaven Meets Earth Through Geometry",
+      description: "Look around—every column, pathway, and garden here follows sacred symmetry, connecting heaven and earth through geometry. This harmony is called Vastu Shastra.",
       highlights: [
-        "🌬️ Hawa Mahal's 953 windows: Natural air conditioning using Venturi effect",
-        "💨 Wind towers in Gujarat: Pull hot air out, push cool air in",
-        "�️ Massive thermal mass: Thick walls absorb heat during day, release at night"
+        "📐 Vastu Shastra: Ancient Indian 'Feng Shui'—harmony through sacred geometry (5000+ years old!)",
+        "⚖️ Perfect Balance: Buildings aligned with cosmic energies, cardinal directions, and natural elements",
+        "🌸 Mandala Layouts: Palace grounds designed as mandalas—spiritual diagrams you can walk through"
       ],
-      imageUrl: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800",
-      story: "Fatehpur Sikri (1571 CE) uses evaporative cooling so effective that its chambers stay at 22°C even when outside temperature hits 48°C. Zero electricity. Just water channels and geometry.",
+      imageUrl: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800",
+      story: "The Taj Mahal is perfectly symmetrical in every dimension—from the four minarets to the gardens. This wasn't just beauty—it was believed to channel divine energy!",
+      interactive: {
+        type: "symmetry-grid",
+        tooltip: "✨ Hover to reveal the hidden geometry!",
+        fact: "Vastu Shastra influenced architecture across Asia—from Angkor Wat to Borobudur. India's gift to sacred geometry!"
+      },
       visual: `
-        <svg viewBox="0 0 400 400" class="visual-svg">
-          <circle cx="200" cy="200" r="120" fill="none" stroke="#DAA520" stroke-width="4" opacity="0.6">
-            <animateTransform
-              attributeName="transform"
-              type="rotate"
-              from="0 200 200"
-              to="360 200 200"
-              dur="20s"
-              repeatCount="indefinite"/>
+        <svg viewBox="0 0 400 400" class="visual-svg symmetry-svg">
+          <defs>
+            <linearGradient id="cosmicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#DAA520"/>
+              <stop offset="50%" style="stop-color:#FFD700"/>
+              <stop offset="100%" style="stop-color:#DAA520"/>
+            </linearGradient>
+          </defs>
+          
+          <!-- Mandala Pattern - Sacred Geometry -->
+          <g class="mandala-layer" opacity="0.7">
+            <circle cx="200" cy="200" r="150" fill="none" stroke="url(#cosmicGrad)" stroke-width="2">
+              <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="30s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="200" r="120" fill="none" stroke="#FFD700" stroke-width="2">
+              <animateTransform attributeName="transform" type="rotate" from="360 200 200" to="0 200 200" dur="25s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="200" r="90" fill="none" stroke="#DAA520" stroke-width="2">
+              <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="20s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          
+          <!-- Cardinal Directions -->
+          <line x1="200" y1="50" x2="200" y2="350" stroke="#DAA520" stroke-width="1.5" opacity="0.5" stroke-dasharray="5,5">
+            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+          </line>
+          <line x1="50" y1="200" x2="350" y2="200" stroke="#DAA520" stroke-width="1.5" opacity="0.5" stroke-dasharray="5,5">
+            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+          </line>
+          
+          <!-- Sacred Square (Vastu Purusha Mandala) -->
+          <rect x="120" y="120" width="160" height="160" fill="none" stroke="#FFD700" stroke-width="3" opacity="0.6">
+            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+          </rect>
+          
+          <!-- Lotus Center (Symbol of Purity) -->
+          <circle cx="200" cy="200" r="40" fill="#FFD700" opacity="0.3">
+            <animate attributeName="r" values="40;45;40" dur="3s" repeatCount="indefinite"/>
           </circle>
-          <circle cx="200" cy="200" r="80" fill="none" stroke="#C19A6B" stroke-width="3" opacity="0.6">
-            <animateTransform
-              attributeName="transform"
-              type="rotate"
-              from="360 200 200"
-              to="0 200 200"
-              dur="15s"
-              repeatCount="indefinite"/>
-          </circle>
-          <circle cx="200" cy="200" r="50" fill="#DAA520" opacity="0.7">
-            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <text x="200" y="210" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold">✨</text>
+          <text x="200" y="215" text-anchor="middle" fill="#DAA520" font-size="40" font-weight="bold">🪷</text>
+          
+          <!-- Symmetry Lines -->
+          <line x1="120" y1="120" x2="280" y2="280" stroke="#C19A6B" stroke-width="1" opacity="0.3"/>
+          <line x1="280" y1="120" x2="120" y2="280" stroke="#C19A6B" stroke-width="1" opacity="0.3"/>
         </svg>
       `
     },
     {
       id: 4,
-      title: "What We Lost (And Are Finding Again)",
-      description: "We built skyscrapers that need AC 24/7. Then realized: ancient Indians built cooler buildings with zero electricity. Today's architects are desperately rediscovering what grandmothers knew.",
+      title: "Legacy Carved in Stone",
+      subtitle: "Celebrations of Faith, Skill, and Joy",
+      description: "All these wonders come from generations of artists, masons, and dreamers. Every carving, arch, and dome is a celebration of faith, skill, and joy—India's story, written forever in stone.",
       highlights: [
-        "�️ IIM Bangalore uses 800-year-old jaali (lattice) screens: 50% less AC needed",
-        "🌱 Laurie Baker's mud architecture: Houses that cost 1/10th of concrete but last longer",
-        "� The Pearl Academy (2014): Stepwell-inspired design, uses 100% passive cooling"
+        "👨‍🎨 20,000 Workers: The Taj Mahal took 22 years—a lifetime of devotion from 20,000 artisans",
+        "🔨 Generational Mastery: Skills passed from grandfather to father to son for 1000+ years",
+        "💎 Living Heritage: These monuments still inspire architects, artists, and dreamers worldwide"
       ],
       imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-      story: "The Infosys Mysore campus (2008) copied ancient temple cooling systems. Result? 25% lower electricity bills while housing 13,500 employees. Ancient wisdom, modern scale.",
+      story: "When the Taj Mahal was complete, Emperor Shah Jahan is said to have wept—not from sadness, but from joy that such beauty could exist. That's the spirit of Indian architecture: building not just structures, but dreams in stone.",
+      interactive: {
+        type: "legacy-showcase",
+        tooltip: "💫 Tap the carvings to reveal their stories!",
+        fact: "Indian architecture influenced the world! From Southeast Asia's temples to Islamic architecture—India's artistic DNA spread across continents!"
+      },
       visual: `
-        <svg viewBox="0 0 400 400" class="visual-svg">
-          <rect x="80" y="150" width="60" height="200" fill="#333" opacity="0.8">
-            <animate attributeName="height" values="200;220;200" dur="4s" repeatCount="indefinite"/>
-          </rect>
-          <rect x="170" y="100" width="60" height="250" fill="#555" opacity="0.9">
-            <animate attributeName="height" values="250;270;250" dur="3s" repeatCount="indefinite"/>
-          </rect>
-          <rect x="260" y="130" width="60" height="220" fill="#333" opacity="0.8">
-            <animate attributeName="height" values="220;240;220" dur="5s" repeatCount="indefinite"/>
-          </rect>
-          <circle cx="200" cy="80" r="30" fill="#DAA520" opacity="0.7">
-            <animate attributeName="cy" values="80;70;80" dur="3s" repeatCount="indefinite"/>
-          </circle>
+        <svg viewBox="0 0 400 400" class="visual-svg legacy-svg">
+          <defs>
+            <radialGradient id="glowGrad">
+              <stop offset="0%" style="stop-color:#FFD700" stop-opacity="0.8"/>
+              <stop offset="100%" style="stop-color:#DAA520" stop-opacity="0.2"/>
+            </radialGradient>
+          </defs>
+          
+          <!-- Monument Silhouette (Taj Mahal inspired) -->
+          <g class="monument-outline" opacity="0.9">
+            <!-- Central Dome -->
+            <ellipse cx="200" cy="180" rx="60" ry="55" fill="url(#glowGrad)">
+              <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+            </ellipse>
+            <!-- Base -->
+            <rect x="120" y="230" width="160" height="100" fill="#8B4513" opacity="0.7"/>
+            <!-- Small Domes -->
+            <circle cx="140" cy="240" r="15" fill="#DAA520" opacity="0.6">
+              <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="260" cy="240" r="15" fill="#DAA520" opacity="0.6">
+              <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Minarets -->
+            <rect x="100" y="250" width="15" height="80" fill="#A0522D" opacity="0.8"/>
+            <rect x="285" y="250" width="15" height="80" fill="#A0522D" opacity="0.8"/>
+          </g>
+          
+          <!-- Artisan Hands (Interactive Carvings) -->
+          <g class="carving-spots" opacity="0.8">
+            <circle class="carving" cx="150" cy="280" r="12" fill="#FFD700" opacity="0.5">
+              <animate attributeName="r" values="12;15;12" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text x="150" y="285" text-anchor="middle" font-size="16">🔨</text>
+            
+            <circle class="carving" cx="200" cy="290" r="12" fill="#FFD700" opacity="0.5">
+              <animate attributeName="r" values="12;15;12" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <text x="200" y="295" text-anchor="middle" font-size="16">💎</text>
+            
+            <circle class="carving" cx="250" cy="280" r="12" fill="#FFD700" opacity="0.5">
+              <animate attributeName="r" values="12;15;12" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <text x="250" y="285" text-anchor="middle" font-size="16">🌺</text>
+          </g>
+          
+          <!-- Hearts Rising (Symbol of Love & Devotion) -->
+          <g class="hearts" opacity="0.6">
+            <text x="180" y="100" font-size="20" fill="#FF69B4">❤️
+              <animateTransform attributeName="transform" type="translate" values="0,0;-10,-30" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.8;0;0.8" dur="4s" repeatCount="indefinite"/>
+            </text>
+            <text x="220" y="120" font-size="20" fill="#FF69B4">❤️
+              <animateTransform attributeName="transform" type="translate" values="0,0;10,-35" dur="5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.7;0;0.7" dur="5s" repeatCount="indefinite"/>
+            </text>
+          </g>
+          
+          <!-- Reflection (Symbol of Timelessness) -->
+          <ellipse cx="200" cy="360" rx="100" ry="15" fill="#4682B4" opacity="0.3">
+            <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+          </ellipse>
         </svg>
       `
     }
@@ -501,6 +679,12 @@ console.log('=================================================');
     console.log('startExperience called!');
     console.log('Experience container:', dom.experienceContainer);
     
+    // Show welcome bar
+    const welcomeBar = document.getElementById('welcomeBar');
+    if (welcomeBar) {
+      welcomeBar.style.display = 'block';
+    }
+    
     // Remove hidden attribute to trigger CSS transition
     dom.experienceContainer.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
@@ -509,7 +693,60 @@ console.log('=================================================');
     setTimeout(() => {
       console.log('Container should now be visible. Rendering chapter 0...');
       renderChapter(0);
+      setupInteractiveFeatures();
     }, 100);
+  }
+
+  // Setup Interactive Features (SVG hover effects, clickable elements)
+  function setupInteractiveFeatures() {
+    // Add event listeners for fresco panels
+    setTimeout(() => {
+      const frescoPanels = document.querySelectorAll('.fresco-panel');
+      frescoPanels.forEach((panel, index) => {
+        panel.addEventListener('click', () => {
+          const story = panel.getAttribute('data-story');
+          showTooltip(`Story: ${story}`, panel);
+        });
+      });
+
+      // Add event listeners for carvings
+      const carvings = document.querySelectorAll('.carving');
+      carvings.forEach((carving, index) => {
+        carving.addEventListener('click', () => {
+          const facts = [
+            'Each carving took 3-6 months of dedicated hand work!',
+            'Artisans used only hand tools—no machines!',
+            'Some carvings tell stories spanning centuries!'
+          ];
+          showTooltip(facts[index] || 'Click to discover more!', carving);
+        });
+      });
+    }, 500);
+  }
+
+  // Show tooltip for interactive elements
+  function showTooltip(message, element) {
+    // Remove existing tooltips
+    document.querySelectorAll('.interactive-tooltip').forEach(t => t.remove());
+
+    const tooltip = document.createElement('div');
+    tooltip.className = 'interactive-tooltip visible';
+    tooltip.textContent = message;
+    
+    // Position near the element
+    const rect = element.getBoundingClientRect();
+    tooltip.style.position = 'fixed';
+    tooltip.style.left = `${rect.left + rect.width / 2}px`;
+    tooltip.style.top = `${rect.top - 80}px`;
+    tooltip.style.transform = 'translateX(-50%)';
+    
+    document.body.appendChild(tooltip);
+    
+    // Auto-hide after 4 seconds
+    setTimeout(() => {
+      tooltip.classList.remove('visible');
+      setTimeout(() => tooltip.remove(), 300);
+    }, 4000);
   }
 
   // Exit experience
@@ -517,6 +754,12 @@ console.log('=================================================');
     dom.experienceContainer.setAttribute('hidden', '');
     document.body.style.overflow = '';
     currentChapter = 0;
+    
+    // Hide welcome bar
+    const welcomeBar = document.getElementById('welcomeBar');
+    if (welcomeBar) {
+      welcomeBar.style.display = 'none';
+    }
   }
 
   // Navigate chapters
@@ -563,11 +806,14 @@ console.log('=================================================');
         </div>
         <div class="chapter-text">
           <h2 class="chapter-title">${chapter.title}</h2>
+          ${chapter.subtitle ? `<p class="chapter-subtitle">${chapter.subtitle}</p>` : ''}
           <p class="chapter-description">${chapter.description}</p>
-          ${chapter.story ? `<p class="chapter-story">💡 <em>${chapter.story}</em></p>` : ''}
+          ${chapter.story ? `<div class="fun-fact-card"><div class="fact-title">Did You Know?</div><div class="fact-content">${chapter.story}</div></div>` : ''}
+          ${chapter.interactive ? `<p class="interactive-hint" style="color: var(--primary-gold); font-size: 0.9rem; margin: 1rem 0;"><strong>${chapter.interactive.tooltip}</strong></p>` : ''}
           <ul class="chapter-highlights">
             ${chapter.highlights.map(h => `<li class="highlight-item">${h}</li>`).join('')}
           </ul>
+          ${chapter.interactive && chapter.interactive.fact ? `<div class="fun-fact-card" style="margin-top: 1.5rem;"><div class="fact-title">Amazing Fact!</div><div class="fact-content">${chapter.interactive.fact}</div></div>` : ''}
         </div>
       </div>
     `;
