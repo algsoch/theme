@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body {
+            background: #1a1410;
+            color: #F5E6D3;
+            font-family: sans-serif;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 { color: #DAA520; margin-bottom: 2rem; }
+        .test-btn {
+            background: linear-gradient(135deg, #DAA520, #C19A6B);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1410;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 1rem;
+        }
+        .test-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>🏛️ Test Page</h1>
+    <p>If you see this, the server is working!</p>
+    <button class="test-btn" onclick="testJS()">Click to Test JavaScript</button>
+    <p id="result"></p>
+    
+    <hr style="margin: 2rem 0; border-color: #DAA520;">
+    
+    <h2>Links to Main Pages:</h2>
+    <a href="index.html" style="color: #DAA520; font-size: 1.2rem; display: block; margin: 1rem;">→ New Unified Index.html</a>
+    <a href="experience.html" style="color: #DAA520; font-size: 1.2rem; display: block; margin: 1rem;">→ Original Experience.html</a>
+    
+    <script>
+        function testJS() {
+            document.getElementById('result').textContent = '✅ JavaScript is working!';
+            document.getElementById('result').style.color = '#90EE90';
+            document.getElementById('result').style.fontSize = '1.5rem';
+            document.getElementById('result').style.marginTop = '1rem';
+        }
+        
+        console.log('✅ Test page loaded successfully');
+    </script>
+</body>
+</html>

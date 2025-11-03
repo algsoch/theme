@@ -1,0 +1,335 @@
+// INDIAN ARCHITECTURE THEME - Enhanced with Multiple Monuments
+(function() {
+  'use strict';
+
+  // Monument Data
+  const monuments = {
+    'taj-mahal': {
+      title: 'The Taj Mahal',
+      subtitle: 'A Testament to Eternal Love',
+      era: 'Mughal Architecture • 17th Century',
+      description: 'Built between 1632 and 1653, the Taj Mahal stands as one of the world\'s most recognized structures and a UNESCO World Heritage Site. Emperor Shah Jahan commissioned this magnificent mausoleum in memory of his beloved wife, Mumtaz Mahal. The monument combines elements from Islamic, Persian, Ottoman Turkish, and Indian architectural styles.',
+      location: 'Agra, Uttar Pradesh',
+      style: 'Mughal Architecture',
+      construction: '21 Years (1632-1653)',
+      artisans: '20,000+ Craftsmen',
+      features: [
+        { icon: '⬜', title: 'Perfect Symmetry', desc: 'The monument exemplifies bilateral symmetry throughout its design' },
+        { icon: '💎', title: 'Precious Inlay', desc: 'Semi-precious stones forming intricate floral patterns (Pietra Dura)' },
+        { icon: '🕌', title: 'Central Dome', desc: '35 meters high, surrounded by four smaller domed chattris' },
+        { icon: '🗼', title: 'Four Minarets', desc: 'Each standing 40 meters tall, framing the main structure' }
+      ],
+      quote: '"The Taj Mahal rises above the banks of the river like a solitary tear suspended on the cheek of time." — Rabindranath Tagore'
+    },
+    'konark': {
+      title: 'Konark Sun Temple',
+      subtitle: 'The Black Pagoda of Odisha',
+      era: 'Kalinga Architecture • 13th Century',
+      description: 'Built in 1250 CE by King Narasimhadeva I, the Konark Sun Temple is a magnificent 13th-century temple dedicated to the Hindu Sun God Surya. Conceived as a gigantic chariot with 24 elaborately carved stone wheels, pulled by seven horses, it is a masterpiece of Odisha\'s temple architecture and a UNESCO World Heritage Site.',
+      location: 'Konark, Odisha',
+      style: 'Kalinga Architecture',
+      construction: '12 Years (1238-1250)',
+      artisans: '1,200 Artisans',
+      features: [
+        { icon: '☀️', title: 'Solar Symbolism', desc: 'Designed as the chariot of Sun God with 24 stone wheels representing hours' },
+        { icon: '🎭', title: 'Erotic Sculptures', desc: 'Intricate carvings depicting human life, deities, and celestial beings' },
+        { icon: '🐴', title: 'Seven Horses', desc: 'Represent the seven days of the week pulling the sun chariot' },
+        { icon: '⚙️', title: 'Functional Wheels', desc: 'Stone wheels designed as sundials to tell time accurately' }
+      ],
+      quote: '"At Konark, the language is that of stone, but the soul is poetry." — Jawaharlal Nehru'
+    },
+    'hawa-mahal': {
+      title: 'Hawa Mahal',
+      subtitle: 'The Palace of Winds',
+      era: 'Rajput Architecture • 18th Century',
+      description: 'Constructed in 1799 by Maharaja Sawai Pratap Singh, the Hawa Mahal is an iconic pink sandstone palace with a unique five-story exterior resembling a honeycomb. Built for royal women to observe street festivals while remaining unseen, its 953 small windows (jharokhas) create a natural cooling system through cross-ventilation.',
+      location: 'Jaipur, Rajasthan',
+      style: 'Rajputana Architecture',
+      construction: '2 Years (1798-1799)',
+      artisans: 'Royal Craftsmen',
+      features: [
+        { icon: '🪟', title: '953 Windows', desc: 'Intricate latticed jharokhas allowing airflow and privacy' },
+        { icon: '🌸', title: 'Pink Sandstone', desc: 'Iconic pink facade giving Jaipur its "Pink City" nickname' },
+        { icon: '🎨', title: 'Honeycomb Design', desc: 'Unique pyramid-shaped structure resembling Krishna\'s crown' },
+        { icon: '💨', title: 'Natural AC', desc: 'Ingenious ventilation system keeping the palace cool in desert heat' }
+      ],
+      quote: '"Hawa Mahal stands as a testament to the ingenious architecture that marries beauty with functionality."'
+    },
+    'gateway': {
+      title: 'Gateway of India',
+      subtitle: 'Mumbai\'s Iconic Monument',
+      era: 'Indo-Saracenic Revival • 20th Century',
+      description: 'Erected in 1924 to commemorate the visit of King George V and Queen Mary to Mumbai in 1911, the Gateway of India is an iconic arch-monument built during the British Raj. Combining Hindu and Muslim architectural elements, it stands as a symbol of Mumbai and served as the ceremonial entrance to India.',
+      location: 'Mumbai, Maharashtra',
+      style: 'Indo-Saracenic Revival',
+      construction: '13 Years (1911-1924)',
+      artisans: 'British and Indian',
+      features: [
+        { icon: '🚪', title: 'Triumphal Arch', desc: '26 meters tall arch combining Hindu and Muslim elements' },
+        { icon: '🏛️', title: 'Yellow Basalt', desc: 'Built with yellow basalt and reinforced concrete' },
+        { icon: '⛵', title: 'Harbor Gateway', desc: 'Overlooks the Arabian Sea, serving as Mumbai\'s symbolic entry point' },
+        { icon: '🎖️', title: 'Historical Significance', desc: 'Witnessed the last British troops leaving India in 1948' }
+      ],
+      quote: '"The Gateway stands as an enduring symbol of India\'s colonial past and its journey to independence."'
+    },
+    'golden-temple': {
+      title: 'Harmandir Sahib',
+      subtitle: 'The Golden Temple of Amritsar',
+      era: 'Sikh Architecture • 16th-19th Century',
+      description: 'Founded by Guru Ram Das in 1577 and completed by Guru Arjan in 1604, the Golden Temple is the holiest Gurdwara of Sikhism. The upper floors were covered with gold foil in the early 19th century by Maharaja Ranjit Singh. Surrounded by a sacred pool (Amrit Sarovar), it welcomes people of all faiths and serves free meals to over 100,000 people daily.',
+      location: 'Amritsar, Punjab',
+      style: 'Sikh Architecture',
+      construction: 'Multiple Phases (1577-1830s)',
+      artisans: 'Sikh and Hindu Craftsmen',
+      features: [
+        { icon: '✨', title: 'Gold Plating', desc: '750 kg of pure gold covering the upper floors and dome' },
+        { icon: '💧', title: 'Sacred Pool', desc: 'Amrit Sarovar (Pool of Nectar) surrounding the temple' },
+        { icon: '🚪', title: 'Four Entrances', desc: 'Symbolizing openness to all people from all directions' },
+        { icon: '🍽️', title: 'Langar Service', desc: 'World\'s largest free kitchen serving 100,000+ meals daily' }
+      ],
+      quote: '"The Golden Temple is not just a place of worship, but a symbol of brotherhood, equality, and selfless service to humanity."'
+    }
+  };
+
+  // State management
+  const state = {
+    modalOpen: false,
+    currentMonument: 'taj-mahal',
+    focusBeforeModal: null
+  };
+
+  // DOM cache
+  const dom = {
+    overlay: null,
+    container: null,
+    openBtn: null,
+    closeBtn: null,
+    monumentBtns: null,
+    modalTitle: null,
+    modalSubtitle: null,
+    monumentEra: null,
+    monumentContent: null,
+    monumentQuote: null
+  };
+
+  // Initialize
+  function init() {
+    cacheDom();
+    bindEvents();
+    renderMonument(state.currentMonument);
+    dispatchCustomEvent('architectureModalReady', { state, dom });
+  }
+
+  function cacheDom() {
+    dom.overlay = document.getElementById('architectureModal');
+    dom.container = dom.overlay?.querySelector('.modal-container');
+    dom.openBtn = document.getElementById('openModalBtn');
+    dom.closeBtn = document.getElementById('closeModalBtn');
+    dom.monumentBtns = Array.from(document.querySelectorAll('.monument-btn'));
+    dom.modalTitle = document.getElementById('modalTitle');
+    dom.modalSubtitle = dom.overlay?.querySelector('.modal-subtitle');
+    dom.monumentEra = dom.overlay?.querySelector('.monument-era');
+    dom.monumentContent = document.getElementById('monumentContent');
+    dom.monumentQuote = document.getElementById('monumentQuote');
+  }
+
+  function bindEvents() {
+    dom.openBtn?.addEventListener('click', openModal);
+    dom.closeBtn?.addEventListener('click', closeModal);
+    dom.overlay?.addEventListener('click', handleOverlayClick);
+    document.addEventListener('keydown', handleKeyDown);
+    
+    dom.monumentBtns.forEach(btn => {
+      btn.addEventListener('click', () => switchMonument(btn.dataset.monument));
+    });
+  }
+
+  // Modal control
+  function openModal() {
+    if (state.modalOpen) return;
+
+    state.focusBeforeModal = document.activeElement;
+    state.modalOpen = true;
+
+    dom.overlay.removeAttribute('hidden');
+    dom.overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(() => {
+      dom.closeBtn?.focus();
+      setupFocusTrap();
+    }, 1200);
+
+    dispatchCustomEvent('architectureModalOpened', { monument: state.currentMonument });
+  }
+
+  function closeModal() {
+    if (!state.modalOpen) return;
+
+    state.modalOpen = false;
+    dom.overlay.setAttribute('aria-hidden', 'true');
+    setTimeout(() => {
+      dom.overlay.setAttribute('hidden', '');
+    }, 300);
+    document.body.style.overflow = '';
+
+    if (state.focusBeforeModal) {
+      state.focusBeforeModal.focus();
+    }
+
+    dispatchCustomEvent('architectureModalClosed', { monument: state.currentMonument });
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === dom.overlay) closeModal();
+  }
+
+  function handleKeyDown(e) {
+    if (!state.modalOpen) return;
+
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeModal();
+    }
+  }
+
+  // Focus trap
+  function setupFocusTrap() {
+    const focusableElements = dom.container.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    dom.container.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    });
+  }
+
+  // Monument switching
+  function switchMonument(monumentId) {
+    if (state.currentMonument === monumentId) return;
+    
+    state.currentMonument = monumentId;
+
+    // Update button states
+    dom.monumentBtns.forEach(btn => {
+      const isActive = btn.dataset.monument === monumentId;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive);
+    });
+
+    // Render new monument content
+    renderMonument(monumentId);
+
+    dispatchCustomEvent('monumentSwitched', { monument: monumentId });
+  }
+
+  // Render monument content
+  function renderMonument(monumentId) {
+    const monument = monuments[monumentId];
+    if (!monument) return;
+
+    // Update header
+    if (dom.modalTitle) dom.modalTitle.textContent = monument.title;
+    if (dom.modalSubtitle) dom.modalSubtitle.textContent = monument.subtitle;
+    if (dom.monumentEra) dom.monumentEra.textContent = monument.era;
+
+    // Update content
+    if (dom.monumentContent) {
+      dom.monumentContent.innerHTML = `
+        <div class="monument-content">
+          <div class="content-section" data-section="intro">
+            <div class="section-ornament top" aria-hidden="true">✦ ◆ ✦</div>
+            
+            <p class="content-text">
+              \${monument.description}
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <div class="info-icon">📍</div>
+                <h3 class="info-label">Location</h3>
+                <p class="info-value">\${monument.location}</p>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">📐</div>
+                <h3 class="info-label">Style</h3>
+                <p class="info-value">\${monument.style}</p>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">🏗️</div>
+                <h3 class="info-label">Construction</h3>
+                <p class="info-value">\${monument.construction}</p>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">👷</div>
+                <h3 class="info-label">Artisans</h3>
+                <p class="info-value">\${monument.artisans}</p>
+              </div>
+            </div>
+
+            <div class="section-ornament bottom" aria-hidden="true">◆ ✦ ◆</div>
+          </div>
+
+          <div class="content-section" data-section="features">
+            <h3 class="section-title">Architectural Highlights</h3>
+            
+            <ul class="features-list">
+              \${monument.features.map(feature => \`
+                <li class="feature-item">
+                  <span class="feature-icon">\${feature.icon}</span>
+                  <strong>\${feature.title}:</strong> \${feature.desc}
+                </li>
+              \`).join('')}
+            </ul>
+          </div>
+        </div>
+      \`;
+    }
+
+    // Update quote
+    if (dom.monumentQuote) {
+      const quoteText = monument.quote.replace(/[""](.+)[""] — (.+)/, '<span>"$1"</span><em>— $2</em>');
+      dom.monumentQuote.innerHTML = quoteText;
+    }
+  }
+
+  // Custom events for GSAP/Anime.js integration
+  function dispatchCustomEvent(eventName, detail) {
+    window.dispatchEvent(new CustomEvent(eventName, { detail }));
+  }
+
+  // Public API
+  window.ArchitectureModal = {
+    open: openModal,
+    close: closeModal,
+    switchMonument: switchMonument,
+    getState: () => ({ ...state }),
+    getDom: () => ({ ...dom }),
+    getMonuments: () => ({ ...monuments })
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();

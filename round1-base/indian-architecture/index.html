@@ -2,242 +2,226 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Architecture Modal - Modal Masters</title>
-    <meta name="description" content="A temple-inspired symmetrical modal showcasing Indian architectural heritage">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Journey Through 5000 Years of Indian Architecture - An Interactive Visual Story">
+    <title>Indian Architecture: A Living Story | Interactive Experience</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/experience.css" as="style">
+    <link rel="preload" href="js/experience.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/experience.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
 </head>
 <body>
-    <!-- Page Content -->
-    <main class="page-container">
-        <div class="heritage-background">
-            <!-- Decorative temple silhouettes -->
-            <div class="temple-silhouette temple-left"></div>
-            <div class="temple-silhouette temple-right"></div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader-content">
+            <div class="loader-mandala">
+                <svg viewBox="0 0 100 100" class="mandala-loader">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                    <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="1" opacity="0.7"/>
+                </svg>
+            </div>
+            <p class="loader-text">Loading Your Journey...</p>
+            <div class="loader-progress">
+                <div class="loader-bar" id="loaderBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Background Particles -->
+    <div class="particles-container" id="particles" aria-hidden="true"></div>
+
+    <!-- Main Landing Hero -->
+    <section class="hero-section" id="heroSection">
+        <!-- Decorative Mandala -->
+        <div class="mandala-pattern" aria-hidden="true">
+            <svg class="mandala-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"></circle>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1" opacity="0.45"></circle>
+                <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="1" opacity="0.55"></circle>
+                <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity="0.65"></circle>
+                <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="1" opacity="0.35"></line>
+                <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="1" opacity="0.35"></line>
+                <line x1="25" y1="25" x2="175" y2="175" stroke="currentColor" stroke-width="1" opacity="0.35"></line>
+                <line x1="175" y1="25" x2="25" y2="175" stroke="currentColor" stroke-width="1" opacity="0.35"></line>
+            </svg>
         </div>
 
-        <div class="content-wrapper">
-            <h1 class="page-title">
-                <span class="title-ornament">✦</span>
-                Indian Architectural Heritage
-                <span class="title-ornament">✦</span>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">✨</span>
+                <span class="badge-text">Interactive Visual Story</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line">Journey Through</span>
+                <span class="title-line animate-gradient">5000 Years</span>
+                <span class="title-line">of Innovation</span>
             </h1>
             
-            <p class="page-description">
-                Experience the grandeur of India's architectural marvels through an immersive modal interface.
-                From ancient temples to Mughal monuments, explore centuries of design excellence.
+            <p class="hero-subtitle">
+                Discover the artisans, materials, and ancient wisdom that shaped India's architectural wonders. 
+                <strong>This isn't a history lesson — it's a visual adventure.</strong>
             </p>
 
-            <!-- Trigger Button -->
-            <button 
-                id="openModalBtn" 
-                class="open-modal-btn"
-                aria-label="Open Indian Architecture Experience"
-                aria-haspopup="dialog"
-            >
-                <span class="btn-icon">🕌</span>
-                <span class="btn-text">Enter the Monument</span>
-                <span class="btn-ornament"></span>
+            <div class="hero-cta">
+                <button class="start-btn primary-cta" id="startJourney" aria-label="Begin your interactive journey">
+                    <span class="btn-text">Begin Your Journey</span>
+                    <span class="btn-icon">→</span>
+                </button>
+                
+                <button class="start-btn secondary-cta" id="exploreMonuments" aria-label="Explore famous monuments">
+                    <span class="btn-text">Explore Monuments</span>
+                    <span class="btn-icon">🏛️</span>
+                </button>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label">Years of History</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Interactive Chapters</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Stories to Tell</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animated Architectural Silhouettes -->
+        <div class="hero-visuals" aria-hidden="true">
+            <div class="visual-element temple-shape"></div>
+            <div class="visual-element fort-shape"></div>
+            <div class="visual-element modern-shape"></div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll to explore</span>
+            <span class="scroll-arrow">↓</span>
+        </div>
+    </section>
+
+    <!-- Interactive Experience Container (Full Story Mode) -->
+    <div class="experience-container" id="experienceContainer" hidden>
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Story Navigation -->
+        <nav class="story-nav" role="navigation" aria-label="Chapter navigation">
+            <button class="nav-dot" data-chapter="0" aria-label="Chapter 1: The Artisans"></button>
+            <button class="nav-dot" data-chapter="1" aria-label="Chapter 2: Materials"></button>
+            <button class="nav-dot" data-chapter="2" aria-label="Chapter 3: Water Engineers"></button>
+            <button class="nav-dot" data-chapter="3" aria-label="Chapter 4: Climate Innovation"></button>
+            <button class="nav-dot" data-chapter="4" aria-label="Chapter 5: Modern Revival"></button>
+        </nav>
+
+        <!-- Chapter Viewer -->
+        <div class="chapter-viewer" id="chapterViewer">
+            <!-- Chapters will be dynamically loaded -->
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-bar">
+            <button class="control-btn" id="prevChapter" aria-label="Previous chapter">
+                <span>← Previous</span>
+            </button>
+            <button class="control-btn primary" id="nextChapter" aria-label="Next chapter">
+                <span>Next →</span>
+            </button>
+            <button class="control-btn secondary" id="exitExperience" aria-label="Exit experience">
+                <span>✕ Exit</span>
             </button>
         </div>
-    </main>
+    </div>
 
-    <!-- Modal Structure -->
-    <div 
-        id="architectureModal" 
-        class="modal-overlay" 
-        role="dialog" 
-        aria-modal="true"
-        aria-labelledby="modalTitle"
-        aria-describedby="modalDescription"
-        hidden
-    >
-        <!-- Backdrop -->
-        <div class="modal-backdrop" aria-hidden="true"></div>
+    <!-- Monument Explorer Container (Traditional Modal) -->
+    <div class="monument-explorer" id="monumentExplorer" hidden>
+        <div class="explorer-header">
+            <h2 class="explorer-title">Explore Monuments</h2>
+            <button class="close-explorer" id="closeExplorer" aria-label="Close monument explorer">✕</button>
+        </div>
 
-        <!-- Modal Container -->
-        <div class="modal-container">
-            <!-- Left Door -->
-            <div class="modal-door modal-door-left" aria-hidden="true">
-                <div class="door-panel">
-                    <div class="door-carving door-carving-1"></div>
-                    <div class="door-carving door-carving-2"></div>
-                    <div class="door-carving door-carving-3"></div>
+        <div class="explorer-grid">
+            <button class="monument-card" data-monument="taj-mahal">
+                <div class="monument-img" style="background: linear-gradient(135deg, #E8DCC8 0%, #C19A6B 100%);">
+                    <span class="monument-icon">🕌</span>
                 </div>
-            </div>
+                <h3>Taj Mahal</h3>
+                <p>Eternal Love in Marble</p>
+            </button>
 
-            <!-- Right Door -->
-            <div class="modal-door modal-door-right" aria-hidden="true">
-                <div class="door-panel">
-                    <div class="door-carving door-carving-1"></div>
-                    <div class="door-carving door-carving-2"></div>
-                    <div class="door-carving door-carving-3"></div>
+            <button class="monument-card" data-monument="konark">
+                <div class="monument-img" style="background: linear-gradient(135deg, #FFB74D 0%, #FF9800 100%);">
+                    <span class="monument-icon">☀️</span>
                 </div>
-            </div>
+                <h3>Konark Sun Temple</h3>
+                <p>Chariot of the Sun God</p>
+            </button>
 
-            <!-- Main Modal Content -->
-            <article class="modal-content" tabindex="-1">
-                <!-- Close Button -->
-                <button 
-                    id="closeModalBtn" 
-                    class="close-modal-btn"
-                    aria-label="Close modal"
-                    type="button"
-                >
-                    <span class="close-icon" aria-hidden="true">×</span>
-                </button>
+            <button class="monument-card" data-monument="hawa-mahal">
+                <div class="monument-img" style="background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%);">
+                    <span class="monument-icon">🪟</span>
+                </div>
+                <h3>Hawa Mahal</h3>
+                <p>Palace of Winds</p>
+            </button>
 
-                <!-- Header with Mandala Pattern -->
-                <header class="modal-header">
-                    <div class="mandala-pattern" aria-hidden="true">
-                        <svg class="mandala-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
-                            <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
-                            <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
-                            <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
-                            <!-- Radial lines -->
-                            <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
-                            <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
-                            <line x1="25" y1="25" x2="175" y2="175" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
-                            <line x1="175" y1="25" x2="25" y2="175" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <h2 id="modalTitle" class="modal-title">
-                        The Taj Mahal
-                    </h2>
-                    <p class="modal-subtitle">A Testament to Eternal Love</p>
-                </header>
+            <button class="monument-card" data-monument="gateway">
+                <div class="monument-img" style="background: linear-gradient(135deg, #FFE082 0%, #FFD54F 100%);">
+                    <span class="monument-icon">🚪</span>
+                </div>
+                <h3>Gateway of India</h3>
+                <p>Mumbai's Iconic Symbol</p>
+            </button>
 
-                <!-- Content Sections -->
-                <section class="modal-body">
-                    <div class="content-section" data-section="intro">
-                        <div class="section-ornament top" aria-hidden="true">✦ ◆ ✦</div>
-                        
-                        <p id="modalDescription" class="content-text">
-                            Built between 1632 and 1653, the Taj Mahal stands as one of the world's most 
-                            recognized structures and a UNESCO World Heritage Site. Emperor Shah Jahan 
-                            commissioned this magnificent mausoleum in memory of his beloved wife, 
-                            Mumtaz Mahal.
-                        </p>
+            <button class="monument-card" data-monument="golden-temple">
+                <div class="monument-img" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);">
+                    <span class="monument-icon">✨</span>
+                </div>
+                <h3>Golden Temple</h3>
+                <p>Harmandir Sahib</p>
+            </button>
+        </div>
 
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <div class="info-icon">📍</div>
-                                <h3 class="info-label">Location</h3>
-                                <p class="info-value">Agra, Uttar Pradesh</p>
-                            </div>
-
-                            <div class="info-card">
-                                <div class="info-icon">📐</div>
-                                <h3 class="info-label">Style</h3>
-                                <p class="info-value">Mughal Architecture</p>
-                            </div>
-
-                            <div class="info-card">
-                                <div class="info-icon">🏗️</div>
-                                <h3 class="info-label">Construction</h3>
-                                <p class="info-value">21 Years</p>
-                            </div>
-
-                            <div class="info-card">
-                                <div class="info-icon">👷</div>
-                                <h3 class="info-label">Artisans</h3>
-                                <p class="info-value">20,000+</p>
-                            </div>
-                        </div>
-
-                        <div class="section-ornament bottom" aria-hidden="true">◆ ✦ ◆</div>
-                    </div>
-
-                    <div class="content-section" data-section="features">
-                        <h3 class="section-title">Architectural Features</h3>
-                        
-                        <ul class="features-list">
-                            <li class="feature-item">
-                                <span class="feature-icon">⬜</span>
-                                <strong>Perfect Symmetry:</strong> The monument exemplifies bilateral symmetry throughout its design
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-icon">💎</span>
-                                <strong>Precious Inlay:</strong> Semi-precious stones forming intricate floral patterns
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-icon">🕌</span>
-                                <strong>Central Dome:</strong> 35 meters high, surrounded by four smaller domed chattris
-                            </li>
-                            <li class="feature-item">
-                                <span class="feature-icon">🗼</span>
-                                <strong>Four Minarets:</strong> Each standing 40 meters tall, framing the main structure
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Interactive Form Section -->
-                    <div class="content-section" data-section="visitor-info">
-                        <h3 class="section-title">Plan Your Visit</h3>
-                        
-                        <form id="visitorForm" class="visitor-form" novalidate>
-                            <div class="form-group">
-                                <label for="visitorName" class="form-label">Full Name</label>
-                                <input 
-                                    type="text" 
-                                    id="visitorName" 
-                                    class="form-input"
-                                    placeholder="Enter your name"
-                                    required
-                                    aria-required="true"
-                                >
-                                <span class="form-error" role="alert"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="visitDate" class="form-label">Preferred Visit Date</label>
-                                <input 
-                                    type="date" 
-                                    id="visitDate" 
-                                    class="form-input"
-                                    required
-                                    aria-required="true"
-                                >
-                                <span class="form-error" role="alert"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="visitorCount" class="form-label">Number of Visitors</label>
-                                <select id="visitorCount" class="form-input">
-                                    <option value="1">1 Person</option>
-                                    <option value="2">2 People</option>
-                                    <option value="3-5">3-5 People</option>
-                                    <option value="6+">6+ People</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" class="form-submit-btn">
-                                Reserve Your Experience
-                            </button>
-                        </form>
-                    </div>
-                </section>
-
-                <!-- Modal Footer -->
-                <footer class="modal-footer">
-                    <div class="footer-ornament" aria-hidden="true">
-                        ✦ ◆ ✦ ◆ ✦
-                    </div>
-                    <p class="footer-text">
-                        "The Taj Mahal rises above the banks of the river like a solitary tear suspended on the cheek of time."
-                        <em>— Rabindranath Tagore</em>
-                    </p>
-                </footer>
-            </article>
+        <!-- Monument Detail View -->
+        <div class="monument-detail" id="monumentDetail" hidden>
+            <!-- Content loaded dynamically -->
         </div>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
-        <span class="toast-message"></span>
+    <!-- Share Buttons (Floating) -->
+    <div class="share-fab" id="shareFab">
+        <button class="fab-toggle" aria-label="Share this experience">
+            <span class="fab-icon">⬆</span>
+        </button>
+        <div class="fab-menu" hidden>
+            <button class="fab-item" data-share="twitter" aria-label="Share on Twitter">
+                <span class="fab-icon">🐦</span>
+            </button>
+            <button class="fab-item" data-share="facebook" aria-label="Share on Facebook">
+                <span class="fab-icon">📘</span>
+            </button>
+            <button class="fab-item" data-share="copy" aria-label="Copy link">
+                <span class="fab-icon">🔗</span>
+            </button>
+        </div>
     </div>
 
-    <script src="modal.js"></script>
+    <!-- JavaScript -->
+    <script src="js/experience.js"></script>
 </body>
 </html>

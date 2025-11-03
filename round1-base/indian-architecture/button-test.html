@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Test</title>
+    <link rel="stylesheet" href="css/experience.css">
+</head>
+<body>
+    <div style="padding: 2rem; text-align: center;">
+        <h1 style="color: #DAA520;">Button Click Test</h1>
+        <button id="startJourney" style="padding: 1rem 2rem; font-size: 1.2rem; margin: 1rem; background: #DAA520; border: none; border-radius: 10px; cursor: pointer;">
+            Start Journey Button
+        </button>
+        <button id="exploreMonuments" style="padding: 1rem 2rem; font-size: 1.2rem; margin: 1rem; background: #C19A6B; border: none; border-radius: 10px; cursor: pointer;">
+            Explore Monuments Button
+        </button>
+        <div id="output" style="margin-top: 2rem; font-size: 1.5rem; color: #90EE90;"></div>
+    </div>
+
+    <script>
+        console.log('=== BUTTON TEST PAGE ===');
+        
+        const startBtn = document.getElementById('startJourney');
+        const exploreBtn = document.getElementById('exploreMonuments');
+        const output = document.getElementById('output');
+        
+        console.log('Start button:', startBtn);
+        console.log('Explore button:', exploreBtn);
+        
+        if (startBtn) {
+            startBtn.addEventListener('click', () => {
+                console.log('✅ START BUTTON CLICKED!');
+                output.textContent = '✅ Start Journey button works!';
+            });
+            console.log('✅ Start button listener attached');
+        } else {
+            console.error('❌ Start button not found');
+        }
+        
+        if (exploreBtn) {
+            exploreBtn.addEventListener('click', () => {
+                console.log('✅ EXPLORE BUTTON CLICKED!');
+                output.textContent = '✅ Explore Monuments button works!';
+            });
+            console.log('✅ Explore button listener attached');
+        } else {
+            console.error('❌ Explore button not found');
+        }
+        
+        console.log('=== TEST PAGE READY ===');
+    </script>
+</body>
+</html>

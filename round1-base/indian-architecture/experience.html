@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Through Indian Architecture - An Interactive Story</title>
+    <link rel="stylesheet" href="css/experience.css">
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Main Landing -->
+    <section class="hero-section">
+        <!-- Decorative Mandala (visual anchor) -->
+        <div class="mandala-pattern" aria-hidden="true">
+            <svg class="mandala-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"></circle>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1" opacity="0.45"></circle>
+                <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="1" opacity="0.55"></circle>
+                <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity="0.65"></circle>
+                <!-- Radial lines -->
+                <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="1" opacity="0.35"></line>
+                <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="1" opacity="0.35"></line>
+                <line x1="25" y1="25" x2="175" y2="175" stroke="currentColor" stroke-width="1" opacity="0.35"></line>
+                <line x1="175" y1="25" x2="25" y2="175" stroke="currentColor" stroke-width="1" opacity="0.35"></line>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Journey Through</span>
+                <span class="title-line animate-gradient">5000 Years</span>
+                <span class="title-line">of Innovation</span>
+            </h1>
+            <p class="hero-subtitle">From ancient temples to modern marvels - discover the story architecture tells</p>
+            <button class="start-btn" id="startJourney">
+                <span class="btn-text">Begin Your Journey</span>
+                <span class="btn-arrow">→</span>
+            </button>
+        </div>
+        
+        <!-- Animated Architectural Silhouettes -->
+        <div class="hero-visuals">
+            <div class="visual-element temple-shape"></div>
+            <div class="visual-element fort-shape"></div>
+            <div class="visual-element modern-shape"></div>
+        </div>
+    </section>
+
+    <!-- Interactive Experience Container -->
+    <div class="experience-container" id="experienceContainer" hidden>
+        <!-- Story Navigation -->
+        <nav class="story-nav">
+            <button class="nav-dot active" data-chapter="0"></button>
+            <button class="nav-dot" data-chapter="1"></button>
+            <button class="nav-dot" data-chapter="2"></button>
+            <button class="nav-dot" data-chapter="3"></button>
+            <button class="nav-dot" data-chapter="4"></button>
+        </nav>
+
+        <!-- Chapter Viewer -->
+        <div class="chapter-viewer" id="chapterViewer">
+            <!-- Chapters will be dynamically loaded -->
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-bar">
+            <button class="control-btn" id="prevChapter">
+                <span>← Previous</span>
+            </button>
+            <button class="control-btn primary" id="nextChapter">
+                <span>Next →</span>
+            </button>
+            <button class="control-btn secondary" id="exitExperience">
+                <span>Exit</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/experience.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Architecture Modal - Modal Masters</title>
+    <meta name="description" content="A temple-inspired symmetrical modal showcasing Indian architectural heritage">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Page Content -->
+    <main class="page-container">
+        <div class="heritage-background">
+            <!-- Decorative temple silhouettes -->
+            <div class="temple-silhouette temple-left"></div>
+            <div class="temple-silhouette temple-right"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <h1 class="page-title">
+                <span class="title-ornament">✦</span>
+                Indian Architectural Heritage
+                <span class="title-ornament">✦</span>
+            </h1>
+            
+            <p class="page-description">
+                Journey through 5000 years of architectural brilliance - from sacred temples to modern marvels,
+                intricate carvings to sustainable design, discover the diverse architectural heritage of India.
+            </p>
+
+            <!-- Trigger Button -->
+            <button 
+                id="openModalBtn" 
+                class="open-modal-btn"
+                aria-label="Open Indian Architecture Experience"
+                aria-haspopup="dialog"
+            >
+                <span class="btn-icon">🏛️</span>
+                <span class="btn-text">Discover Indian Architecture</span>
+                <span class="btn-ornament"></span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Modal Structure -->
+    <div 
+        id="architectureModal" 
+        class="modal-overlay" 
+        role="dialog" 
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
+        hidden
+    >
+        <!-- Backdrop -->
+        <div class="modal-backdrop" aria-hidden="true"></div>
+
+        <!-- Modal Container -->
+        <div class="modal-container">
+            <!-- Left Door -->
+            <div class="modal-door modal-door-left" aria-hidden="true">
+                <div class="door-panel">
+                    <div class="door-carving door-carving-1"></div>
+                    <div class="door-carving door-carving-2"></div>
+                    <div class="door-carving door-carving-3"></div>
+                </div>
+            </div>
+
+            <!-- Right Door -->
+            <div class="modal-door modal-door-right" aria-hidden="true">
+                <div class="door-panel">
+                    <div class="door-carving door-carving-1"></div>
+                    <div class="door-carving door-carving-2"></div>
+                    <div class="door-carving door-carving-3"></div>
+                </div>
+            </div>
+
+            <!-- Main Modal Content -->
+            <article class="modal-content" tabindex="-1">
+                <!-- Close Button -->
+                <button 
+                    id="closeModalBtn" 
+                    class="close-modal-btn"
+                    aria-label="Close modal"
+                    type="button"
+                >
+                    <span class="close-icon" aria-hidden="true">×</span>
+                </button>
+
+                <!-- Header with Mandala Pattern -->
+                <header class="modal-header">
+                    <div class="mandala-pattern" aria-hidden="true">
+                        <svg class="mandala-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+                            <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+                            <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
+                            <!-- Radial lines -->
+                            <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="25" y1="25" x2="175" y2="175" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="175" y1="25" x2="25" y2="175" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Architecture Category Selector -->
+                    <div class="monument-selector">
+                        <button class="monument-btn active" data-monument="temples" aria-pressed="true">
+                            <span class="monument-icon">�</span>
+                            <span class="monument-name">Temple Architecture</span>
+                        </button>
+                        <button class="monument-btn" data-monument="forts" aria-pressed="false">
+                            <span class="monument-icon">�</span>
+                            <span class="monument-name">Forts & Palaces</span>
+                        </button>
+                        <button class="monument-btn" data-monument="stepwells" aria-pressed="false">
+                            <span class="monument-icon">💧</span>
+                            <span class="monument-name">Stepwells</span>
+                        </button>
+                        <button class="monument-btn" data-monument="vernacular" aria-pressed="false">
+                            <span class="monument-icon">🏘️</span>
+                            <span class="monument-name">Vernacular</span>
+                        </button>
+                        <button class="monument-btn" data-monument="modern" aria-pressed="false">
+                            <span class="monument-icon">🌆</span>
+                            <span class="monument-name">Modern Designs</span>
+                        </button>
+                    </div>
+                    
+                    <h2 id="modalTitle" class="modal-title">
+                        The Taj Mahal
+                    </h2>
+                    <p class="modal-subtitle">A Testament to Eternal Love</p>
+                    <p class="monument-era">Mughal Architecture • 17th Century</p>
+                </header>
+
+                <!-- Content Sections -->
+                <section class="modal-body">
+                    <!-- Monument Content Container -->
+                    <div id="monumentContent" class="monument-content-wrapper">
+                        <!-- Content will be dynamically inserted by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Modal Footer -->
+                <footer class="modal-footer">
+                    <div class="footer-ornament" aria-hidden="true">
+                        ✦ ◆ ✦ ◆ ✦
+                    </div>
+                    <p id="monumentQuote" class="footer-text">
+                        "The Taj Mahal rises above the banks of the river like a solitary tear suspended on the cheek of time."
+                        <em>— Rabindranath Tagore</em>
+                    </p>
+                </footer>
+            </article>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="modal.js"></script>
+</body>
+</html>

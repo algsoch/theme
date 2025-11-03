@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Test - Indian Architecture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #1a1410;
+            color: #F5E6D3;
+            overflow-x: hidden;
+        }
+        
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #1a1410;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-text {
+            font-size: 1.5rem;
+            color: #DAA520;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #DAA520, #C19A6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+        
+        .start-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #DAA520, #C19A6B);
+            color: #1a1410;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader-text">Loading Your Journey...</div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">🏛️ Journey Through Indian Architecture</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">An Interactive Visual Story</p>
+        <button class="start-btn" id="startBtn">Begin Your Journey</button>
+    </section>
+
+    <script>
+        console.log('✅ Page loaded');
+        
+        // Hide loading screen after 2 seconds
+        setTimeout(() => {
+            const loader = document.getElementById('loadingScreen');
+            if (loader) {
+                loader.classList.add('hidden');
+                console.log('✅ Loading screen hidden');
+            }
+        }, 2000);
+        
+        // Test button
+        document.getElementById('startBtn').addEventListener('click', () => {
+            alert('Button clicked! ✅ JavaScript is working perfectly!');
+            console.log('✅ Button clicked');
+        });
+        
+        console.log('✅ Script initialized');
+    </script>
+</body>
+</html>
